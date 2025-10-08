@@ -16,6 +16,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Убирает горизонтальную прокрутку */
+}
+
 body {
     font-family: var(--font-primary);
     background-color: var(--color-background);
@@ -55,8 +60,53 @@ p {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 .text-accent {
     color: var(--color-accent);
+}
+
+/* Адаптив для изображений */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
 }
