@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-container">
       <div class="header-logo">
-        <img src="../../assets/images/logo-spade.png" alt="Spades Partners" class="logo-image">
+        <img src="../../assets/images/logo-spade.png" alt="Spades Partners" class="logo-image" />
       </div>
 
       <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }">
@@ -16,7 +16,11 @@
       <div class="header-actions">
         <button class="btn-login">Log in</button>
 
-        <button class="mobile-menu-toggle" @click="toggleMobileMenu" :class="{ 'is-open': isMobileMenuOpen }">
+        <button
+          class="mobile-menu-toggle"
+          @click="toggleMobileMenu"
+          :class="{ 'is-open': isMobileMenuOpen }"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -67,7 +71,7 @@ onUnmounted(() => {
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
-  padding: 16px 80px;
+  padding: 16px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;

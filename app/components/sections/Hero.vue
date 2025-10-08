@@ -6,62 +6,64 @@
       </video>
     </div>
 
-    <div class="hero-content">
-      <!-- Верхняя часть с текстом -->
-      <div class="hero-top">
-        <h1 class="hero-title">
-          <span class="title-quality">Quality</span>
-          <span class="title-specialty">is our specialty</span>
-        </h1>
+    <div class="hero-container">
+      <div class="hero-content">
+        <!-- Верхняя часть с текстом -->
+        <div class="hero-top">
+          <h1 class="hero-title">
+            <span class="title-quality">Quality</span>
+            <span class="title-specialty">is our specialty</span>
+          </h1>
 
-        <p class="hero-description">
-          Join Spades Partners program today and work with one of the best affiliates in the online
-          casino market.
-        </p>
-      </div>
+          <p class="hero-description">
+            Join Spades Partners program today and work with one of the best affiliates in the
+            online casino market.
+          </p>
+        </div>
 
-      <!-- Нижняя часть с кнопкой и шагами -->
-      <div class="hero-bottom">
-        <button class="hero-button" @click="handleBecomePartner">
-          Become a partner
-          <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path
-              d="M7.5 15L12.5 10L7.5 5"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
+        <!-- Нижняя часть с кнопкой и шагами -->
+        <div class="hero-bottom">
+          <button class="hero-button" @click="handleBecomePartner">
+            Become a partner
+            <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
 
-        <div class="hero-steps">
-          <div class="step">
-            <div class="step-icon">
-              <img src="./../../assets/images/Icon1.png" alt="Register icon" />
+          <div class="hero-steps">
+            <div class="step">
+              <div class="step-icon">
+                <img src="./../../assets/images/Icon1.png" alt="Register icon" />
+              </div>
+              <p class="step-text">1. Register on a website</p>
             </div>
-            <p class="step-text">1. Register on a website</p>
-          </div>
 
-          <div class="step">
-            <div class="step-icon">
-              <img src="./../../assets/images/Icon2.png" alt="Create account icon" />
+            <div class="step">
+              <div class="step-icon">
+                <img src="./../../assets/images/Icon2.png" alt="Create account icon" />
+              </div>
+              <p class="step-text">2. Create a partner account</p>
             </div>
-            <p class="step-text">2. Create a partner account</p>
-          </div>
 
-          <div class="step">
-            <div class="step-icon">
-              <img src="./../../assets/images/Icon3.png" alt="Promote icon" />
+            <div class="step">
+              <div class="step-icon">
+                <img src="./../../assets/images/Icon3.png" alt="Promote icon" />
+              </div>
+              <p class="step-text">3. Start to promote</p>
             </div>
-            <p class="step-text">3. Start to promote</p>
-          </div>
 
-          <div class="step">
-            <div class="step-icon">
-              <img src="./../../assets/images/Icon4.png" alt="Earn icon" />
+            <div class="step">
+              <div class="step-icon">
+                <img src="./../../assets/images/Icon4.png" alt="Earn icon" />
+              </div>
+              <p class="step-text">4. Earn lifetime revenue</p>
             </div>
-            <p class="step-text">4. Earn lifetime revenue</p>
           </div>
         </div>
       </div>
@@ -134,18 +136,23 @@ const handleBecomePartner = () => {
   z-index: 2;
 }
 
-.hero-content {
+/* Единый контейнер - стандарт для всех секций */
+.hero-container {
   position: relative;
   z-index: 2;
   width: 100%;
-  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 80px;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  width: 100%;
+  min-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 100px 80px 40px;
-  max-width: 1920px;
-  margin: 0 auto;
-  box-sizing: border-box;
 }
 
 /* Верхняя часть с текстом */
@@ -176,11 +183,14 @@ const handleBecomePartner = () => {
 }
 
 .hero-description {
-  font-family: Font, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
+  line-height: 153%;
   text-align: center;
-  color: #e6e5ffa3;
+  color: rgba(230, 229, 255, 0.64);
+  margin: 0;
+  max-width: 600px;
 }
 
 /* Нижняя часть с кнопкой и шагами */
@@ -233,7 +243,6 @@ const handleBecomePartner = () => {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1440px;
   width: 100%;
 }
 
@@ -273,18 +282,13 @@ const handleBecomePartner = () => {
   margin: 0;
 }
 
-/* Медиа-запросы для широких экранов */
+/* Медиа-запросы */
 @media (min-width: 1441px) {
-  .hero-content {
-    padding: 120px 100px 60px;
-  }
-
   .hero-title {
     font-size: 72px;
   }
 
   .hero-steps {
-    max-width: 1600px;
     gap: 24px;
   }
 
@@ -295,18 +299,14 @@ const handleBecomePartner = () => {
 }
 
 @media (max-width: 1440px) and (min-width: 1025px) {
-  .hero-content {
-    padding: 100px 60px 40px;
+  .hero-container {
+    padding: 100px 60px;
   }
 }
 
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 52px;
-  }
-
-  .hero-content {
-    padding: 100px 40px 40px;
   }
 
   .hero-bottom {
@@ -324,17 +324,16 @@ const handleBecomePartner = () => {
     min-height: 100svh;
   }
 
+  .hero-container {
+    padding: 80px 24px;
+  }
+
   .hero-content {
-    padding: 80px 24px 20px;
-    min-height: 100svh;
+    min-height: calc(100svh - 160px);
   }
 
   .hero-top {
     padding-top: 30px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 
   .hero-title {
@@ -356,7 +355,6 @@ const handleBecomePartner = () => {
   .hero-bottom {
     gap: 35px;
     padding-bottom: 20px;
-    flex: 0 0 auto;
   }
 
   .hero-steps {
@@ -374,20 +372,8 @@ const handleBecomePartner = () => {
 }
 
 @media (max-width: 480px) {
-  .hero {
-    min-height: 100svh;
-    height: 100svh;
-  }
-
-  .hero-content {
-    padding: 90px 16px 16px;
-    min-height: 100svh;
-    height: 100svh;
-  }
-
-  .hero-top {
-    padding-top: 20px;
-    flex: 0 1 auto;
+  .hero-container {
+    padding: 80px 16px;
   }
 
   .hero-title {
@@ -412,14 +398,11 @@ const handleBecomePartner = () => {
   .hero-bottom {
     gap: 24px;
     padding-bottom: 16px;
-    flex: 0 0 auto;
   }
 
   .hero-steps {
     grid-template-columns: 1fr;
     gap: 8px;
-    max-width: 100%;
-    width: 100%;
   }
 
   .step {
