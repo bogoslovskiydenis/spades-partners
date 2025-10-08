@@ -56,7 +56,7 @@
 .about-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 80px 80px 80px;
 }
 
 .about-header {
@@ -81,7 +81,6 @@
 
 .about-image {
   width: 100%;
-  margin-bottom: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,7 +95,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-bottom: 100px;
 }
 
 .feature-card {
@@ -142,7 +140,7 @@
 
 @media (max-width: 768px) {
   .about-container {
-    padding: 0 16px;
+    padding: 80px 16px;
   }
 
   .about-title {
@@ -150,7 +148,6 @@
   }
 
   .about-image {
-    margin-bottom: 60px;
   }
 
   .about-features {

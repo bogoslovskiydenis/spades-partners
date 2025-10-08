@@ -38,30 +38,30 @@
         <div class="hero-steps">
           <div class="step">
             <div class="step-icon">
-              <img src="./../../assets/images/Icon1.png" />
-              <p class="step-text">1. Register on a website</p>
+              <img src="./../../assets/images/Icon1.png" alt="Register icon" />
             </div>
+            <p class="step-text">1. Register on a website</p>
           </div>
 
           <div class="step">
             <div class="step-icon">
-              <img src="./../../assets/images/Icon2.png" />
-              <p class="step-text">2. Create a partner account</p>
+              <img src="./../../assets/images/Icon2.png" alt="Create account icon" />
             </div>
+            <p class="step-text">2. Create a partner account</p>
           </div>
 
           <div class="step">
             <div class="step-icon">
-              <img src="./../../assets/images/Icon3.png" />
-              <p class="step-text">3. Start to promote</p>
+              <img src="./../../assets/images/Icon3.png" alt="Promote icon" />
             </div>
+            <p class="step-text">3. Start to promote</p>
           </div>
 
           <div class="step">
             <div class="step-icon">
-              <img src="./../../assets/images/Icon4.png" />
-              <p class="step-text">4. Earn lifetime revenue</p>
+              <img src="./../../assets/images/Icon4.png" alt="Earn icon" />
             </div>
+            <p class="step-text">4. Earn lifetime revenue</p>
           </div>
         </div>
       </div>
@@ -81,8 +81,8 @@ const handleBecomePartner = () => {
 <style scoped>
 .hero {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   overflow: hidden;
   background-color: #010101;
 }
@@ -138,13 +138,14 @@ const handleBecomePartner = () => {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 80px 80px 0;
-  max-width: 1440px;
+  padding: 100px 80px 40px;
+  max-width: 1920px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* Верхняя часть с текстом */
@@ -154,6 +155,7 @@ const handleBecomePartner = () => {
   align-items: center;
   text-align: center;
   width: 100%;
+  padding-top: 40px;
 }
 
 .hero-title {
@@ -191,6 +193,7 @@ const handleBecomePartner = () => {
   align-items: center;
   gap: 72px;
   width: 100%;
+  padding-bottom: 40px;
 }
 
 .hero-button {
@@ -233,7 +236,7 @@ const handleBecomePartner = () => {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  max-width: 1280px;
+  max-width: 1440px;
   width: 100%;
 }
 
@@ -243,7 +246,7 @@ const handleBecomePartner = () => {
   align-items: center;
   justify-content: center;
   gap: 24px;
-  height: 144px;
+  min-height: 144px;
   padding: 32px 16px;
   background: rgba(183, 200, 255, 0.04);
   backdrop-filter: blur(44px);
@@ -255,15 +258,49 @@ const handleBecomePartner = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-icon img {
+  max-width: 100%;
+  height: auto;
 }
 
 .step-text {
-  font-family: Font/Text, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 153%;
   text-align: center;
   color: #e6e5ffa3;
+  margin: 0;
+}
+
+/* Медиа-запросы для широких экранов */
+@media (min-width: 1441px) {
+  .hero-content {
+    padding: 120px 100px 60px;
+  }
+
+  .hero-title {
+    font-size: 72px;
+  }
+
+  .hero-steps {
+    max-width: 1600px;
+    gap: 24px;
+  }
+
+  .step {
+    min-height: 160px;
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 1440px) and (min-width: 1025px) {
+  .hero-content {
+    padding: 100px 60px 40px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -271,100 +308,182 @@ const handleBecomePartner = () => {
     font-size: 52px;
   }
 
+  .hero-content {
+    padding: 100px 40px 40px;
+  }
+
   .hero-bottom {
-    gap: 35px;
+    gap: 50px;
   }
 
   .hero-steps {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero-content {
+    padding: 80px 24px 20px;
+    min-height: 100svh;
+  }
+
   .hero-top {
-    flex: 0;
+    padding-top: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero-title {
-    font-size: 42px;
-    margin-bottom: 20px;
+    font-size: 38px;
+    margin-bottom: 18px;
     white-space: normal;
   }
 
   .hero-description {
-    font-size: 15px;
+    font-size: 14px;
+    max-width: 90%;
   }
 
   .hero-button {
-    padding: 16px 36px;
-    font-size: 15px;
+    padding: 15px 34px;
+    font-size: 14px;
   }
 
   .hero-bottom {
-    gap: 30px;
+    gap: 35px;
+    padding-bottom: 20px;
+    flex: 0 0 auto;
   }
 
   .hero-steps {
-    gap: 16px;
+    gap: 14px;
   }
 
   .step {
-    height: 120px;
-    padding: 24px 12px;
+    min-height: 110px;
+    padding: 20px 12px;
   }
 
-  .hero-content {
-    padding: 80px 16px 0;
+  .step-text {
+    font-size: 13px;
   }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    min-height: 100svh;
+    height: 100svh;
+  }
+
   .hero-content {
-    padding: 80px 16px 0;
+    padding: 90px 16px 16px;
+    min-height: 100svh;
+    height: 100svh;
   }
 
   .hero-top {
-    flex: 1;
+    padding-top: 20px;
+    flex: 0 1 auto;
   }
 
   .hero-title {
-    font-size: 32px;
-    margin-bottom: 16px;
+    font-size: 26px;
+    margin-bottom: 12px;
+    line-height: 1.25;
   }
 
   .hero-description {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.45;
+    max-width: 100%;
+    padding: 0 5px;
   }
 
   .hero-button {
-    padding: 14px 30px;
-    font-size: 14px;
+    padding: 13px 30px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   .hero-bottom {
     gap: 24px;
-    flex: 0;
+    padding-bottom: 16px;
+    flex: 0 0 auto;
   }
 
   .hero-steps {
     grid-template-columns: 1fr;
     gap: 8px;
-    max-width: 343px;
+    max-width: 100%;
+    width: 100%;
   }
 
   .step {
     width: 100%;
-    height: 64px;
-    min-width: 244px;
-    padding: 20px;
-    gap: 8px;
-    border-radius: 20px;
+    min-height: 56px;
+    height: 56px;
+    padding: 12px 16px;
+    gap: 12px;
+    border-radius: 14px;
     flex-direction: row;
     justify-content: flex-start;
   }
 
+  .step-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .step-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
   .step-text {
     text-align: left;
+    font-size: 12px;
+    line-height: 1.35;
+    flex: 1;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-description {
+    font-size: 12px;
+  }
+
+  .hero-button {
+    padding: 12px 26px;
+    font-size: 12px;
+  }
+
+  .step {
+    padding: 10px 14px;
+    gap: 10px;
+    min-height: 52px;
+    height: 52px;
+  }
+
+  .step-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .step-text {
+    font-size: 11px;
   }
 }
 </style>
