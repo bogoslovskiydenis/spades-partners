@@ -51,7 +51,6 @@
 .about {
   width: 100%;
   background: #010101;
-  padding: 142px 0;
 }
 
 .about-container {
@@ -142,9 +141,6 @@
 }
 
 @media (max-width: 768px) {
-  .about {
-    padding: 64px 0;
-  }
   .about-container {
     padding: 0 16px;
   }

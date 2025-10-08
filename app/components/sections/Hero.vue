@@ -189,7 +189,7 @@ const handleBecomePartner = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 72px;
   width: 100%;
 }
 
@@ -257,9 +257,6 @@ const handleBecomePartner = () => {
   justify-content: center;
 }
 
-.step-icon img {
-}
-
 .step-text {
   font-family: Font/Text, sans-serif;
   font-weight: 400;
@@ -267,9 +264,6 @@ const handleBecomePartner = () => {
   line-height: 153%;
   text-align: center;
   color: #e6e5ffa3;
-}
-.hero-top {
-  padding-top: 48px;
 }
 
 @media (max-width: 1024px) {
@@ -319,25 +313,14 @@ const handleBecomePartner = () => {
     padding: 24px 12px;
   }
 
-  .step-icon {
-    width: 44px;
-    height: 44px;
-  }
-
-  .step-icon svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  .step-text {
-    font-size: 13px;
+  .hero-content {
+    padding: 80px 16px 0;
   }
 }
 
 @media (max-width: 480px) {
   .hero-content {
-    justify-content: center;
-    gap: 60px;
+    padding: 80px 16px 0;
   }
 
   .hero-top {
@@ -380,19 +363,7 @@ const handleBecomePartner = () => {
     justify-content: flex-start;
   }
 
-  .step-icon {
-    width: 40px;
-    height: 40px;
-    border-width: 1.5px;
-  }
-
-  .step-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
   .step-text {
-    font-size: 12px;
     text-align: left;
   }
 }
