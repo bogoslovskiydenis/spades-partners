@@ -279,7 +279,7 @@ export default {
 }
 
 .btn-primary {
-  width: 215px;
+  max-width: 215px;
   height: 56px;
   opacity: 1;
   padding: 16px 24px;
@@ -387,11 +387,6 @@ export default {
 
   .action-buttons {
     flex-direction: column;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
   }
 
   .heart-2 {
