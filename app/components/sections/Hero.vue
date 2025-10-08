@@ -176,14 +176,11 @@ const handleBecomePartner = () => {
 }
 
 .hero-description {
-  font-family: 'Inter', sans-serif;
+  font-family: Font, sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 153%;
   text-align: center;
-  color: rgba(230, 229, 255, 0.64);
-  margin: 0;
-  max-width: 600px;
+  color: #e6e5ffa3;
 }
 
 /* Нижняя часть с кнопкой и шагами */
