@@ -321,10 +321,6 @@ export default {
 }
 /* Большие планшеты и маленькие десктопы (до 1200px) */
 @media (max-width: 1200px) {
-  .container {
-    max-width: 1000px;
-  }
-
   .heart-1 {
     width: 377.25px;
     height: 377.25px;
@@ -356,11 +352,6 @@ export default {
 
 /* Планшеты (до 992px) */
 @media (max-width: 992px) {
-  .container {
-    max-width: 800px;
-    padding: 80px 40px;
-  }
-
   .section-title {
     font-size: 42px;
   }
