@@ -188,6 +188,7 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .header-container {
+    padding: 16px 16px;
   }
 
   .mobile-menu-toggle {
@@ -237,6 +238,7 @@ onUnmounted(() => {
   }
 
   .header-container {
+    padding: 16px 16px;
   }
 
   .logo-image {

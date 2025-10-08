@@ -307,7 +307,10 @@ padding-top: 48px;
 }
 
 @media (max-width: 768px) {
+  .hero-content {
 
+    padding: 80px 16px 0;
+  }
   .hero-top {
     flex: 0;
   }
@@ -359,6 +362,7 @@ padding-top: 48px;
   .hero-content {
     justify-content: center;
     gap: 60px;
+    padding: 80px 16px 0;
   }
 
   .hero-top {
