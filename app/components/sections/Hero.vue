@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="hero-background">
       <video autoplay loop muted playsinline>
-        <source src="../../assets/videos/SP_HeroAnim.mp4" type="video/mp4">
+        <source src="../../assets/videos/SP_HeroAnim.mp4" type="video/mp4" />
       </video>
     </div>
 
@@ -10,11 +10,13 @@
       <!-- Верхняя часть с текстом -->
       <div class="hero-top">
         <h1 class="hero-title">
-          <span class="title-quality">Quality</span> <span class="title-specialty">is our specialty</span>
+          <span class="title-quality">Quality</span>
+          <span class="title-specialty">is our specialty</span>
         </h1>
 
         <p class="hero-description">
-          Join Spades Partners program today and work with one of the best affiliates in the online casino market.
+          Join Spades Partners program today and work with one of the best affiliates in the online
+          casino market.
         </p>
       </div>
 
@@ -23,51 +25,43 @@
         <button class="hero-button" @click="handleBecomePartner">
           Become a partner
           <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M7.5 15L12.5 10L7.5 5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </button>
 
         <div class="hero-steps">
           <div class="step">
             <div class="step-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M12 8V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <circle cx="12" cy="15" r="0.75" fill="currentColor"/>
-              </svg>
+              <img src="./../../assets/images/Icon1.png" />
+              <p class="step-text">1. Register on a website</p>
             </div>
-            <p class="step-text">1. Register on a website</p>
           </div>
 
           <div class="step">
             <div class="step-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M12 6L6 12L12 18L18 12L12 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-                <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
+              <img src="./../../assets/images/Icon2.png" />
+              <p class="step-text">2. Create a partner account</p>
             </div>
-            <p class="step-text">2. Create a partner account</p>
           </div>
 
           <div class="step">
             <div class="step-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 12L12 15L19.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M19.5 12V18C19.5 18.825 18.825 19.5 18 19.5H6C5.175 19.5 4.5 18.825 4.5 18V6C4.5 5.175 5.175 4.5 6 4.5H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
+              <img src="./../../assets/images/Icon3.png" />
+              <p class="step-text">3. Start to promote</p>
             </div>
-            <p class="step-text">3. Start to promote</p>
           </div>
 
           <div class="step">
             <div class="step-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="4.5" y="7.5" width="15" height="10.5" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M4.5 10.5H19.5" stroke="currentColor" stroke-width="1.5"/>
-                <circle cx="8.25" cy="13.5" r="1" fill="currentColor"/>
-              </svg>
+              <img src="./../../assets/images/Icon4.png" />
+              <p class="step-text">4. Earn lifetime revenue</p>
             </div>
-            <p class="step-text">4. Earn lifetime revenue</p>
           </div>
         </div>
       </div>
@@ -115,7 +109,12 @@ const handleBecomePartner = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   z-index: 1;
 }
 
@@ -126,7 +125,12 @@ const handleBecomePartner = () => {
   left: 0;
   width: 100%;
   height: 300px;
-  background: linear-gradient(to top, rgba(1, 1, 1, 0.9) 0%, rgba(1, 1, 1, 0.6) 50%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(1, 1, 1, 0.9) 0%,
+    rgba(1, 1, 1, 0.6) 50%,
+    transparent 100%
+  );
   z-index: 2;
 }
 
@@ -162,11 +166,11 @@ const handleBecomePartner = () => {
 }
 
 .title-quality {
-  color: #CD9F55;
+  color: #cd9f55;
 }
 
 .title-specialty {
-  color: #F2F2FF;
+  color: #f2f2ff;
 }
 
 .hero-description {
@@ -228,7 +232,7 @@ const handleBecomePartner = () => {
 .hero-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
   max-width: 1280px;
   width: 100%;
 }
@@ -247,51 +251,28 @@ const handleBecomePartner = () => {
   transition: all 0.3s ease;
 }
 
-.step:hover {
-  background: rgba(183, 200, 255, 0.08);
-  transform: translateY(-5px);
-}
-
 .step-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px solid rgba(205, 159, 85, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #CD9F55;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 
-.step:hover .step-icon {
-  background: rgba(205, 159, 85, 0.15);
-  border-color: rgba(205, 159, 85, 0.6);
-  transform: scale(1.1);
-}
-
-.step-icon svg {
-  width: 24px;
-  height: 24px;
+.step-icon img {
 }
 
 .step-text {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
+  font-family: Font/Text, sans-serif;
   font-weight: 400;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 153%;
   text-align: center;
-  margin: 0;
+  color: #e6e5ffa3;
 }
-.hero-top{
-padding-top: 48px;
+.hero-top {
+  padding-top: 48px;
 }
 
 @media (max-width: 1024px) {
-
-
   .hero-title {
     font-size: 52px;
   }
@@ -302,15 +283,10 @@ padding-top: 48px;
 
   .hero-steps {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-content {
-
-    padding: 80px 16px 0;
-  }
   .hero-top {
     flex: 0;
   }
@@ -362,7 +338,6 @@ padding-top: 48px;
   .hero-content {
     justify-content: center;
     gap: 60px;
-    padding: 80px 16px 0;
   }
 
   .hero-top {

@@ -3,34 +3,42 @@
     <div class="about-container">
       <div class="about-header">
         <h2 class="about-title">About Spades Partners</h2>
-        <p class="about-subtitle">Join our affiliate program and enjoy the benefits of working with real professionals.</p>
+        <p class="about-subtitle">
+          Join our affiliate program and enjoy the benefits of working with real professionals.
+        </p>
       </div>
 
       <div class="about-image">
-        <img src="../../assets/images/about-laptop.png" alt="Casino laptop" class="laptop-image">
+        <img src="../../assets/images/about-laptop.png" alt="Casino laptop" class="laptop-image" />
       </div>
 
       <div class="about-features">
         <div class="feature-card">
-
           <h3 class="feature-title">Technologies</h3>
-          <p class="feature-description">We offer outstanding gambling experience and turn it into the best deal for every player, full of winning opportunities and fair outcomes. It will help you achieve the desired results in a short time.</p>
+          <p class="feature-description">
+            We offer outstanding gambling experience and turn it into the best deal for every
+            player, full of winning opportunities and fair outcomes. It will help you achieve the
+            desired results in a short time.
+          </p>
         </div>
 
         <div class="feature-card">
-
           <h3 class="feature-title">Professional team</h3>
-          <p class="feature-description">Our experienced account managers are always ready to help you generate a substantial income. They can serve our clients in various languages and help increase their profits.</p>
+          <p class="feature-description">
+            Our experienced account managers are always ready to help you generate a substantial
+            income. They can serve our clients in various languages and help increase their profits.
+          </p>
         </div>
 
         <div class="feature-card">
-
           <h3 class="feature-title">Newest games</h3>
-          <p class="feature-description">We work with the most popular suppliers within the gaming industry to bring the latest online casino games, which make our gambling affiliate program stand out. Don't waste another minute, come and join us!</p>
+          <p class="feature-description">
+            We work with the most popular suppliers within the gaming industry to bring the latest
+            online casino games, which make our gambling affiliate program stand out. Don't waste
+            another minute, come and join us!
+          </p>
         </div>
       </div>
-
-
     </div>
   </section>
 </template>
@@ -60,7 +68,7 @@
 .about-title {
   font-size: 48px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 16px;
 }
 
@@ -107,21 +115,10 @@
   transform: translateY(-5px);
 }
 
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(205, 159, 85, 0.1);
-  border-radius: 50%;
-}
-
 .feature-title {
   font-size: 24px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 16px;
 }
 
@@ -133,41 +130,7 @@
   margin: 0;
 }
 
-.about-brand {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 50px;
-}
-
-.brand-icon {
-  flex-shrink: 0;
-}
-
-.brand-content {
-  flex: 1;
-}
-
-.brand-title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #FFFFFF;
-  margin-bottom: 12px;
-}
-
-.brand-description {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-}
-
 @media (max-width: 1024px) {
-
   .about-features {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -186,8 +149,6 @@
     padding: 0 16px;
   }
 
-
-
   .about-title {
     font-size: 36px;
   }
@@ -204,13 +165,9 @@
     padding: 30px 24px;
     text-align: left;
   }
-
-
 }
 
 @media (max-width: 480px) {
-
-
   .about-title {
     font-size: 28px;
   }
@@ -224,14 +181,6 @@
   }
 
   .feature-description {
-    font-size: 14px;
-  }
-
-  .brand-title {
-    font-size: 20px;
-  }
-
-  .brand-description {
     font-size: 14px;
   }
 }
