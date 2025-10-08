@@ -3,12 +3,10 @@
     <Header />
 
     <main>
+      <Header/>
       <Hero />
-<!--      <About />-->
-<!--      <Features />-->
-<!--      <Testimonials />-->
-<!--      <FAQ />-->
-<!--      <Contact />-->
+      <About/>
+
     </main>
 
     <Footer />
@@ -16,6 +14,9 @@
 </template>
 
 <script setup>
+import Hero from "../components/sections/Hero.vue";
+import Header from "../components/sections/Header.vue";
+import About from "../components/sections/About.vue";
 </script>
 
 <style scoped>

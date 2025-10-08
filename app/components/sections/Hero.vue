@@ -1,11 +1,420 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
+  <section class="hero">
+    <div class="hero-background">
+      <video autoplay loop muted playsinline>
+        <source src="../../assets/videos/SP_HeroAnim.mp4" type="video/mp4">
+      </video>
+    </div>
 
+    <div class="hero-content">
+      <!-- Верхняя часть с текстом -->
+      <div class="hero-top">
+        <h1 class="hero-title">
+          <span class="title-quality">Quality</span> <span class="title-specialty">is our specialty</span>
+        </h1>
+
+        <p class="hero-description">
+          Join Spades Partners program today and work with one of the best affiliates in the online casino market.
+        </p>
+      </div>
+
+      <!-- Нижняя часть с кнопкой и шагами -->
+      <div class="hero-bottom">
+        <button class="hero-button" @click="handleBecomePartner">
+          Become a partner
+          <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="hero-steps">
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 8V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="12" cy="15" r="0.75" fill="currentColor"/>
+              </svg>
+            </div>
+            <p class="step-text">1. Register on a website</p>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 6L6 12L12 18L18 12L12 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <p class="step-text">2. Create a partner account</p>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 12L12 15L19.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.5 12V18C19.5 18.825 18.825 19.5 18 19.5H6C5.175 19.5 4.5 18.825 4.5 18V6C4.5 5.175 5.175 4.5 6 4.5H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="step-text">3. Start to promote</p>
+          </div>
+
+          <div class="step">
+            <div class="step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="4.5" y="7.5" width="15" height="10.5" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M4.5 10.5H19.5" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="8.25" cy="13.5" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <p class="step-text">4. Earn lifetime revenue</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
-<style scoped>
+<script setup>
+const handleBecomePartner = () => {
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+</script>
 
+<style scoped>
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #010101;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.hero-background::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to top, rgba(1, 1, 1, 0.9) 0%, rgba(1, 1, 1, 0.6) 50%, transparent 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 80px 80px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Верхняя часть с текстом */
+.hero-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 24px;
+  white-space: nowrap;
+}
+
+.title-quality {
+  color: #CD9F55;
+}
+
+.title-specialty {
+  color: #F2F2FF;
+}
+
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 153%;
+  text-align: center;
+  color: rgba(230, 229, 255, 0.64);
+  margin: 0;
+  max-width: 600px;
+}
+
+/* Нижняя часть с кнопкой и шагами */
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.hero-button {
+  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px 42px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 35px rgba(212, 165, 116, 0.35);
+  letter-spacing: 0.01em;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(212, 165, 116, 0.45);
+  background: linear-gradient(135deg, #e0b180 0%, #c89f6b 100%);
+}
+
+.hero-button:active {
+  transform: translateY(-1px);
+}
+
+.button-arrow {
+  transition: transform 0.3s ease;
+}
+
+.hero-button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+.hero-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  height: 144px;
+  padding: 32px 16px;
+  background: rgba(183, 200, 255, 0.04);
+  backdrop-filter: blur(44px);
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  background: rgba(183, 200, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+.step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(205, 159, 85, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #CD9F55;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.step:hover .step-icon {
+  background: rgba(205, 159, 85, 0.15);
+  border-color: rgba(205, 159, 85, 0.6);
+  transform: scale(1.1);
+}
+
+.step-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.step-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+}
+.hero-top{
+padding-top: 48px;
+}
+
+@media (max-width: 1024px) {
+
+
+  .hero-title {
+    font-size: 52px;
+  }
+
+  .hero-bottom {
+    gap: 35px;
+  }
+
+  .hero-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-top {
+    flex: 0;
+  }
+
+  .hero-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+    white-space: normal;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-button {
+    padding: 16px 36px;
+    font-size: 15px;
+  }
+
+  .hero-bottom {
+    gap: 30px;
+  }
+
+  .hero-steps {
+    gap: 16px;
+  }
+
+  .step {
+    height: 120px;
+    padding: 24px 12px;
+  }
+
+  .step-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .step-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .step-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .hero-top {
+    flex: 1;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-button {
+    padding: 14px 30px;
+    font-size: 14px;
+  }
+
+  .hero-bottom {
+    gap: 24px;
+    flex: 0;
+  }
+
+  .hero-steps {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    max-width: 343px;
+  }
+
+  .step {
+    width: 100%;
+    height: 64px;
+    min-width: 244px;
+    padding: 20px;
+    gap: 8px;
+    border-radius: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .step-icon {
+    width: 40px;
+    height: 40px;
+    border-width: 1.5px;
+  }
+
+  .step-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .step-text {
+    font-size: 12px;
+    text-align: left;
+  }
+}
 </style>
