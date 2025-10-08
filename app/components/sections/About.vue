@@ -224,8 +224,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(205, 159, 85, 0.1);
-  border-radius: 50%;
 }
 
 .benefit-icon img {
