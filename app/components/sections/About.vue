@@ -248,6 +248,23 @@
   margin: 0;
 }
 
+/*Respons для 1024px */
+@media (max-width: 1024px) {
+  .about-title {
+    font-size: 42px;
+  }
+
+  .benefits-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .benefits-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 40px;
+  }
+}
+
 /* Медиа-запросы для about-features и benefits-list */
 @media (max-width: 900px) {
   .about-features {
@@ -259,23 +276,6 @@
   .feature-card:last-child {
     grid-column: 1 / -1;
     justify-self: center;
-  }
-
-  /* benefits-list теперь в 2 колонки */
-  .benefits-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 40px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .benefits-wrapper {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .about-title {
-    font-size: 42px;
   }
 }
 

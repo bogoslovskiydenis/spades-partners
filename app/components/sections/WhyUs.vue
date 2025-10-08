@@ -140,25 +140,26 @@ export default {
 
 <style scoped>
 .why-us-section {
+  width: 100%;
+  background: #010101;
   position: relative;
   overflow: hidden;
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
-  padding: 80px 80px 80px;
+  padding: 80px 80px;
 }
 
 .section-title {
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 600;
   text-align: center;
   color: #ffffff;
   margin-bottom: 80px;
-  text-transform: none;
 }
 
 .content-wrapper {
@@ -286,9 +287,14 @@ export default {
   border-radius: 20px;
   border-width: 1px;
   align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.btn-primary span {
+.btn-primary span,
+.btn-secondary span {
   font-family: Font, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -298,22 +304,41 @@ export default {
 
 .btn-primary {
   background: #cd9f55;
+  border: 1px solid #cd9f55;
 }
 
 .btn-secondary {
   background: transparent;
+}
+@media (max-width: 1440px) {
+  .heart-1 {
+    width: 377.25px;
+    height: 377.25px;
+    top: -45%;
+    right: 0%;
+    transform: rotate(350deg);
+  }
 }
 /* Большие планшеты и маленькие десктопы (до 1200px) */
 @media (max-width: 1200px) {
   .container {
     max-width: 1000px;
   }
+
   .heart-1 {
     width: 377.25px;
     height: 377.25px;
     top: -34%;
     right: 0%;
     transform: rotate(350deg);
+  }
+
+  .heart-2 {
+    width: 771px;
+    height: 771px;
+    top: -400px;
+    left: -250px;
+    transform: rotate(6deg);
   }
 
   .heart-3 {
@@ -333,6 +358,11 @@ export default {
 @media (max-width: 992px) {
   .container {
     max-width: 800px;
+    padding: 80px 40px;
+  }
+
+  .section-title {
+    font-size: 42px;
   }
 
   .advantages-grid {
@@ -347,6 +377,10 @@ export default {
 
 /* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
+  .container {
+    padding: 80px 16px;
+  }
+
   .section-title {
     font-size: 36px;
   }
@@ -364,15 +398,11 @@ export default {
     flex-direction: column;
   }
 
-  .btn-primary {
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
   }
-}
 
-@media (max-width: 768px) {
-  .container {
-    padding: 80px 16px;
-  }
   .heart-2 {
     width: 771px;
     height: 771px;
@@ -380,6 +410,7 @@ export default {
     left: -37%;
     transform: rotate(6deg);
   }
+
   .heart-1 {
     width: 377.25px;
     height: 377.25px;
@@ -399,10 +430,6 @@ export default {
 
 /* Маленькие мобильные устройства (до 480px) */
 @media (max-width: 480px) {
-  .container {
-    padding: 80px 16px;
-  }
-
   .heart-2 {
     width: 771px;
     height: 771px;
