@@ -1,12 +1,11 @@
 <template>
-  <section class="why-us-section">
+  <section id="why-us" class="why-us-section">
     <div class="container">
       <h2 class="section-title">Why us</h2>
 
       <div class="content-wrapper">
         <!-- Декоративные элементы - 3 сердца -->
         <div class="hearts-container">
-          image 4.png
           <div class="heart heart-1">
             <img src="../../assets/images/heart1.png" alt="heart" />
           </div>
@@ -111,9 +110,9 @@
           <button class="btn-primary">
             <span>Become a partner</span>
           </button>
-          <button class="btn-secondary">
+          <div class="btn-secondary">
             <span>Terms and conditions</span>
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -124,7 +123,6 @@
 export default {
   name: 'WhyUsSection',
   mounted() {
-    // Здесь можно добавить анимации для сердец
     this.animateHearts();
   },
   methods: {
@@ -142,8 +140,6 @@ export default {
 
 <style scoped>
 .why-us-section {
-  background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
-  padding: 100px 20px;
   position: relative;
   overflow: hidden;
 }
@@ -153,10 +149,11 @@ export default {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  padding: 80px 80px 80px;
 }
 
 .section-title {
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 700;
   text-align: center;
   color: #ffffff;
@@ -168,18 +165,20 @@ export default {
   position: relative;
 }
 
-/* Сердца - декоративные элементы */
+/* Сердца - декоративные элементы как фиксированный фон */
 .hearts-container {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
 }
 
 .heart {
   position: absolute;
-  opacity: 0.6;
+  opacity: 1;
   filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
 }
 
@@ -189,22 +188,21 @@ export default {
   object-fit: contain;
 }
 
+/* Desktop стили - фиксированные позиции */
 .heart-1 {
   width: 377.25px;
   height: 377.25px;
   top: -78%;
   right: 0%;
   transform: rotate(350deg);
-  opacity: 1;
 }
 
 .heart-2 {
+  width: 771px;
+  height: 771px;
   top: -400px;
   left: -250px;
   transform: rotate(6deg);
-  width: 771px;
-  height: 771px;
-  opacity: 1;
 }
 
 .heart-3 {
@@ -213,16 +211,16 @@ export default {
   bottom: -160px;
   right: -4%;
   transform: rotate(351deg);
-  opacity: 1;
 }
 
+/* Анимация плавания - только вертикальное движение */
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0) rotate(var(--rotate, 0deg));
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px) rotate(var(--rotate, 0deg));
+    transform: translateY(-20px);
   }
 }
 
@@ -237,37 +235,30 @@ export default {
 }
 
 .advantage-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 40px 30px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.advantage-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(218, 165, 32, 0.5);
-  transform: translateY(-5px);
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  height: 228px;
+  opacity: 1;
+  gap: 24px;
+  border-radius: 24px;
+  backdrop-filter: blur(44px);
+  background: #b7c8ff0a;
+  padding: 32px 16px;
 }
 
 .card-icon {
   width: 60px;
   height: 60px;
-  background: rgba(218, 165, 32, 0.1);
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  color: #daa520;
 }
 
 .advantage-card h3 {
   font-size: 20px;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 12px;
 }
 
 .advantage-card p {
@@ -282,49 +273,82 @@ export default {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-  padding: 16px 40px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
-  color: #000000;
+  width: 215px;
+  height: 56px;
+  opacity: 1;
+  padding: 16px 24px;
+  gap: 8px;
+  border-radius: 20px;
+  border-width: 1px;
+  align-items: center;
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(218, 165, 32, 0.4);
+.btn-primary span {
+  font-family: Font, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #ffffff;
+}
+
+.btn-primary {
+  background: #cd9f55;
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
 }
-
-.btn-secondary:hover {
-  border-color: rgba(218, 165, 32, 0.5);
-  background: rgba(218, 165, 32, 0.1);
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .why-us-section {
-    padding: 60px 15px;
+/* Большие планшеты и маленькие десктопы (до 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+  .heart-1 {
+    width: 377.25px;
+    height: 377.25px;
+    top: -34%;
+    right: 0%;
+    transform: rotate(350deg);
   }
 
+  .heart-3 {
+    width: 394px;
+    height: 379.77px;
+    bottom: -2%;
+    right: -4%;
+    transform: rotate(351deg);
+  }
+
+  .advantages-grid {
+    gap: 25px;
+  }
+}
+
+/* Планшеты (до 992px) */
+@media (max-width: 992px) {
+  .container {
+    max-width: 800px;
+  }
+
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .advantage-card {
+    padding: 35px 25px;
+  }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
   .section-title {
     font-size: 36px;
-    margin-bottom: 50px;
   }
 
   .advantages-grid {
@@ -332,28 +356,89 @@ export default {
     gap: 20px;
   }
 
-  .heart-1 {
-    width: 200px !important;
-    height: 200px !important;
-  }
-
-  .heart-2 {
-    width: 400px !important;
-    height: 400px !important;
-  }
-
-  .heart-3 {
-    width: 180px !important;
-    height: 180px !important;
+  .advantage-card {
+    padding: 30px 20px;
   }
 
   .action-buttons {
     flex-direction: column;
   }
 
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 80px 16px;
+  }
+  .heart-2 {
+    width: 771px;
+    height: 771px;
+    top: -29%;
+    left: -37%;
+    transform: rotate(6deg);
+  }
+  .heart-1 {
+    width: 377.25px;
+    height: 377.25px;
+    top: 22%;
+    right: -29%;
+    transform: rotate(350deg);
+  }
+
+  .heart-3 {
+    width: 394px;
+    height: 379.77px;
+    bottom: 1%;
+    right: -26%;
+    transform: rotate(351deg);
+  }
+}
+
+/* Маленькие мобильные устройства (до 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 80px 16px;
+  }
+
+  .heart-2 {
+    width: 771px;
+    height: 771px;
+    top: -29%;
+    left: -58%;
+    transform: rotate(6deg);
+  }
+
+  .advantage-card {
+    padding: 30px 20px;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .advantage-card h3 {
+    font-size: 18px;
+  }
+
+  .advantage-card p {
+    font-size: 13px;
+  }
+}
+
+/* Очень маленькие экраны (до 360px) */
+@media (max-width: 360px) {
+  .advantage-card {
+    padding: 25px 15px;
+  }
+
   .btn-primary,
   .btn-secondary {
-    width: 100%;
+    padding: 14px 30px;
+    font-size: 14px;
   }
 }
 </style>

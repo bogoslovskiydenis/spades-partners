@@ -6,11 +6,13 @@
       </div>
 
       <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }">
-        <a href="#about" class="nav-link" @click="closeMenu">About</a>
-        <a href="#why-us" class="nav-link" @click="closeMenu">Why us</a>
-        <a href="#comissions" class="nav-link" @click="closeMenu">Comissions</a>
-        <a href="#brands" class="nav-link" @click="closeMenu">Our brands</a>
-        <a href="#testimonials" class="nav-link" @click="closeMenu">Testimonials</a>
+        <a href="#about" class="nav-link" @click="scrollToSection('about')">About</a>
+        <a href="#why-us" class="nav-link" @click="scrollToSection('why-us')">Why us</a>
+        <a href="#comissions" class="nav-link" @click="scrollToSection('comissions')">Comissions</a>
+        <a href="#brands" class="nav-link" @click="scrollToSection('brands')">Our brands</a>
+        <a href="#testimonials" class="nav-link" @click="scrollToSection('testimonials')"
+          >Testimonials</a
+        >
       </nav>
 
       <div class="header-actions">
@@ -31,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onUnmounted } from 'vue';
 
 const isMobileMenuOpen = ref(false);
 
@@ -48,6 +50,31 @@ const toggleMobileMenu = () => {
 const closeMenu = () => {
   isMobileMenuOpen.value = false;
   document.body.style.overflow = '';
+};
+
+const scrollToSection = sectionId => {
+  // Предотвращаем стандартное поведение ссылки
+  event.preventDefault();
+
+  // Закрываем мобильное меню
+  closeMenu();
+
+  // Находим секцию
+  const section = document.getElementById(sectionId);
+
+  if (section) {
+    // Получаем высоту хедера для правильного offset
+    const headerHeight = 80;
+
+    // Получаем позицию секции
+    const sectionTop = section.offsetTop - headerHeight;
+
+    // Плавный скролл к секции
+    window.scrollTo({
+      top: sectionTop,
+      behavior: 'smooth',
+    });
+  }
 };
 
 onUnmounted(() => {
@@ -102,6 +129,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   position: relative;
   padding: 8px 0;
+  cursor: pointer;
 }
 
 .nav-link::after {
@@ -178,9 +206,6 @@ onUnmounted(() => {
 }
 
 @media (max-width: 1024px) {
-  .header-container {
-  }
-
   .header-nav {
     gap: 30px;
   }
