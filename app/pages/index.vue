@@ -8,6 +8,7 @@
       <About />
       <WhyUs />
       <OurBrands />
+      <Testimonials />
     </main>
 
     <Footer />
@@ -20,6 +21,7 @@ import Header from '../components/sections/Header.vue';
 import About from '../components/sections/About.vue';
 import WhyUs from '../components/sections/WhyUs.vue';
 import OurBrands from '../components/sections/OurBrands.vue';
+import Testimonials from '../components/sections/Testimonials.vue';
 </script>
 
 <style scoped>
