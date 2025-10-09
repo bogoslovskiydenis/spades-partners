@@ -1,9 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero-background">
-      <video autoplay loop muted playsinline>
-        <source src="../../assets/videos/SP_HeroAnim.mp4" type="video/mp4" />
-      </video>
+      <img src="../../assets/images/SP_HeroBG.png" alt="" />
     </div>
 
     <div class="hero-container">
@@ -19,6 +17,11 @@
             Join Spades Partners program today and work with one of the best affiliates in the
             online casino market.
           </p>
+        </div>
+
+        <!-- Анимированная картинка пик -->
+        <div class="hero-spades">
+          <img src="../../assets/images/SP_HeroSpades.png" alt="Spades" class="spades-image" />
         </div>
 
         <!-- Нижняя часть с кнопкой и шагами -->
@@ -39,28 +42,28 @@
           <div class="hero-steps">
             <div class="step">
               <div class="step-icon">
-                <img src="./../../assets/images/Icon1.png" alt="Register icon" />
+                <img src="../../assets/images/Icon1.png" alt="Register icon" />
               </div>
               <p class="step-text">1. Register on a website</p>
             </div>
 
             <div class="step">
               <div class="step-icon">
-                <img src="./../../assets/images/Icon2.png" alt="Create account icon" />
+                <img src="../../assets/images/Icon2.png" alt="Create account icon" />
               </div>
               <p class="step-text">2. Create a partner account</p>
             </div>
 
             <div class="step">
               <div class="step-icon">
-                <img src="./../../assets/images/Icon3.png" alt="Promote icon" />
+                <img src="../../assets/images/Icon3.png" alt="Promote icon" />
               </div>
               <p class="step-text">3. Start to promote</p>
             </div>
 
             <div class="step">
               <div class="step-icon">
-                <img src="./../../assets/images/Icon4.png" alt="Earn icon" />
+                <img src="../../assets/images/Icon4.png" alt="Earn icon" />
               </div>
               <p class="step-text">4. Earn lifetime revenue</p>
             </div>
@@ -98,10 +101,11 @@ const handleBecomePartner = () => {
   z-index: 1;
 }
 
-.hero-background video {
+.hero-background img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .hero-background::after {
@@ -191,6 +195,31 @@ const handleBecomePartner = () => {
   color: rgba(230, 229, 255, 0.64);
   margin: 0;
   max-width: 600px;
+}
+
+/* Анимированная картинка пик */
+.hero-spades {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.spades-image {
+  max-width: 50%;
+  height: auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
 }
 
 /* Нижняя часть с кнопкой и шагами */
@@ -317,6 +346,10 @@ const handleBecomePartner = () => {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+
+  .spades-image {
+    max-width: 80%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -345,6 +378,14 @@ const handleBecomePartner = () => {
   .hero-description {
     font-size: 14px;
     max-width: 90%;
+  }
+
+  .hero-spades {
+    padding: 30px 0;
+  }
+
+  .spades-image {
+    max-width: 70%;
   }
 
   .hero-button {
@@ -387,6 +428,24 @@ const handleBecomePartner = () => {
     line-height: 1.45;
     max-width: 100%;
     padding: 0 5px;
+  }
+
+  .hero-spades {
+    padding: 20px 0;
+  }
+
+  .spades-image {
+    max-width: 60%;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(2deg);
+    }
   }
 
   .hero-button {
@@ -443,6 +502,10 @@ const handleBecomePartner = () => {
 
   .hero-description {
     font-size: 12px;
+  }
+
+  .spades-image {
+    max-width: 55%;
   }
 
   .hero-button {
