@@ -209,7 +209,7 @@ const handleBecomePartner = () => {
 .spades-image {
   max-width: 50%;
   height: auto;
-  animation: float 3s ease-in-out infinite;
+  animation: float 1.5s ease-in-out infinite;
 }
 
 @keyframes float {
