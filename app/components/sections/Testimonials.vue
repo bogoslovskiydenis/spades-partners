@@ -136,6 +136,18 @@ const testimonials = ref([
     logo: card3,
     text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
   },
+  {
+    id: 5,
+    brand: 'BetHub Pro',
+    logo: card3,
+    text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
+  },
+  {
+    id: 6,
+    brand: 'BetHub Pro',
+    logo: card3,
+    text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
+  },
 ]);
 
 const faqItems = ref([
