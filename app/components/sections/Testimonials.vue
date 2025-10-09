@@ -52,30 +52,16 @@
                 :key="testimonial.id"
                 class="testimonial-card"
               >
-                <div class="quote-icon">
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <path
-                      d="M10 18C10 15.7909 8.20914 14 6 14V10C10.4183 10 14 13.5817 14 18V22H10V18Z"
-                      fill="currentColor"
-                    />
-                    <path
-                      d="M24 18C24 15.7909 22.2091 14 20 14V10C24.4183 10 28 13.5817 28 18V22H24V18Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-
                 <div class="brand-logo">
                   <img :src="testimonial.logo" :alt="testimonial.brand" />
                 </div>
 
-                <p class="testimonial-text">{{ testimonial.text }}</p>
-
-                <div class="testimonial-footer">
-                  <div class="author-info">
-                    <div class="author-name">{{ testimonial.author }}</div>
-                    <div class="author-role">{{ testimonial.role }}</div>
+                <div class="cards">
+                  <div class="quote-icon">
+                    <img src="../../assets/images/brekets.png" alt="brekets" />
                   </div>
+
+                  <p class="testimonial-text">{{ testimonial.text }}</p>
                 </div>
               </div>
             </div>
@@ -131,32 +117,24 @@ const testimonials = ref([
     brand: 'iGamingHub',
     logo: card1,
     text: 'iGamingHub and Spades Partners is a one of a kind team in both the iGaming and cryptocurrency space. We are honored to have our brand affiliated with one of the highest performing affiliate programs in the space. Looking forward to our continued partnership with the team!',
-    author: 'John Smith',
-    role: 'CEO, iGamingHub',
   },
   {
     id: 2,
     brand: 'Casino Maestro',
     logo: card2,
     text: "Spades Partners is one of the best affiliate programs we've worked with. Their team is professional, responsive, and always looking for ways to help us succeed. The commission structure is fair and payments are always on time.",
-    author: 'Maria Garcia',
-    role: 'Marketing Director',
   },
   {
     id: 3,
     brand: 'Voutilainet',
     logo: card3,
     text: 'Spades Partners has been an incredible experience for us. We have grown our business significantly with their help. Their honest partnership and willingness to work with us to optimize our strategy has been invaluable.',
-    author: 'Alex Johnson',
-    role: 'Founder',
   },
   {
     id: 4,
     brand: 'BetHub Pro',
     logo: card3,
     text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
-    author: 'Sarah Chen',
-    role: 'Head of Partnerships',
   },
 ]);
 
@@ -364,8 +342,7 @@ onUnmounted(() => {
 }
 
 .quote-icon {
-  color: rgba(255, 100, 50, 0.3);
-  margin-bottom: 20px;
+  color: #e6e5ffa3;
 }
 
 .brand-logo {
@@ -376,38 +353,15 @@ onUnmounted(() => {
 }
 
 .brand-logo img {
-  max-height: 100%;
-  max-width: 120px;
   object-fit: contain;
 }
 
 .testimonial-text {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 24px;
-}
-
-.testimonial-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
-}
-
-.author-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.author-name {
-  color: #ffffff;
+  font-family: Font, sans-serif;
+  font-weight: 400;
   font-size: 16px;
-  font-weight: 600;
-}
-
-.author-role {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 14px;
+  line-height: 153%;
+  color: #e6e5ffa3;
 }
 
 .faq-list {
@@ -481,7 +435,16 @@ onUnmounted(() => {
   font-size: 15px;
   line-height: 1.7;
 }
+.cards {
+  display: flex;
+  gap: 24px;
+}
 
+.quote-icon img {
+  max-width: 32.3271484375px;
+  max-height: 24.41628074645996px;
+  opacity: 1;
+}
 @media (max-width: 1200px) {
   .testimonial-card {
     min-width: calc(50% - 12px);
