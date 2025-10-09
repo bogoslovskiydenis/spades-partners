@@ -70,6 +70,7 @@
             <span>Become a partner</span>
           </button>
           <div class="btn-secondary">
+            <img src="../../assets/images/Doc.png" alt="Doc" />
             <span>Terms and conditions</span>
           </div>
         </div>
@@ -267,8 +268,7 @@ export default {
   transition: all 0.3s ease;
 }
 
-.btn-primary span,
-.btn-secondary span {
+.btn-primary span {
   font-family: Font, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -280,9 +280,39 @@ export default {
   background: #cd9f55;
   border: 1px solid #cd9f55;
 }
+.btn-secondary span {
+  font-family: Font, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #f2f2ff;
+}
 
 .btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
+  gap: 8px;
+}
+
+@media (max-width: 4000px) {
+  .heart-1 {
+    width: 377.25px;
+    height: 377.25px;
+    top: -45%;
+    right: 0%;
+    transform: rotate(350deg);
+  }
+}
+@media (max-width: 1920px) {
+  .heart-1 {
+    width: 377.25px;
+    height: 377.25px;
+    top: -45%;
+    right: 0%;
+    transform: rotate(350deg);
+  }
 }
 
 @media (max-width: 1440px) {
