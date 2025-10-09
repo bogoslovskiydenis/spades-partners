@@ -43,15 +43,7 @@
         </div>
         <button type="submit" class="submit-button" :disabled="isSubmitting">
           <span>Send</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path
-              d="M4.16699 10H15.8337M15.8337 10L10.0003 4.16666M15.8337 10L10.0003 15.8333"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+          <img src="../../assets/images/contact_sabmit.png" />
         </button>
       </form>
     </div>
@@ -230,6 +222,13 @@ const handleSubmit = async () => {
   justify-content: center;
   gap: 10px;
   box-shadow: 0 8px 24px rgba(201, 160, 95, 0.3);
+}
+.submit-button span {
+  font-family: Font/Text, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #ffffff;
 }
 
 .submit-button:hover:not(:disabled) {

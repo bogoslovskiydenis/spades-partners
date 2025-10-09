@@ -54,7 +54,7 @@
 
           <div class="advantage-card">
             <div class="card-icon">
-              <img src="../../assets/images/payment.png" alt="payment" />
+              <img src="../../assets/images/parther.png" alt="parther" />
             </div>
             <h3>TOP partnerships</h3>
             <p>
@@ -212,8 +212,6 @@ export default {
 }
 
 .card-icon {
-  width: 60px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
