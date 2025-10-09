@@ -7,8 +7,8 @@
 
       <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }">
         <a href="#about" class="nav-link" @click="scrollToSection('about')">About</a>
-        <a href="#why-us" class="nav-link" @click="scrollToSection('why-us')">Why us</a>
         <a href="#comissions" class="nav-link" @click="scrollToSection('comissions')">Comissions</a>
+        <a href="#why-us" class="nav-link" @click="scrollToSection('why-us')">Why us</a>
         <a href="#brands" class="nav-link" @click="scrollToSection('brands')">Our brands</a>
         <a href="#testimonials" class="nav-link" @click="scrollToSection('testimonials')"
           >Testimonials</a

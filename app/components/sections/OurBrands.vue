@@ -146,7 +146,7 @@
 }
 @media (max-width: 768px) {
   .container {
-    padding: 80px 16px;
+    padding: 0 16px;
   }
 }
 /* Responsive */

@@ -21,17 +21,7 @@
         <div class="advantages-grid">
           <div class="advantage-card">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
+              <img src="../../assets/images/payment.png" alt="payment" />
             </div>
             <h3>Payment methods</h3>
             <p>
@@ -42,18 +32,7 @@
 
           <div class="advantage-card">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
+              <img src="../../assets/images/Icon1.png" alt="payment" />
             </div>
             <h3>Personal manager</h3>
             <p>
@@ -64,17 +43,7 @@
 
           <div class="advantage-card">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
-              </svg>
+              <img src="../../assets/images/retencion.png" alt="retencion" />
             </div>
             <h3>Player retention</h3>
             <p>
@@ -85,17 +54,7 @@
 
           <div class="advantage-card">
             <div class="card-icon">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M3 9h18M9 21V9" />
-              </svg>
+              <img src="../../assets/images/payment.png" alt="payment" />
             </div>
             <h3>TOP partnerships</h3>
             <p>
@@ -228,18 +187,21 @@ export default {
 /* Сетка преимуществ */
 .advantages-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   margin-bottom: 60px;
   position: relative;
   z-index: 2;
+  justify-items: center;
 }
 
 .advantage-card {
   align-items: center;
   flex-direction: column;
   display: flex;
-  height: 228px;
+  min-height: 252px;
+  max-width: 305px;
+  width: 100%;
   opacity: 1;
   gap: 24px;
   border-radius: 24px;
@@ -256,16 +218,28 @@ export default {
   justify-content: center;
 }
 
+.card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .advantage-card h3 {
-  font-size: 20px;
+  font-family: Font, sans-serif;
   font-weight: 600;
-  color: #ffffff;
+  font-size: 20px;
+  leading-trim: NONE;
+  line-height: 138%;
+  text-align: center;
 }
 
 .advantage-card p {
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  font-family: Font, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 153%;
+  text-align: center;
+  color: #e6e5ffa3;
 }
 
 /* Кнопки действий */
@@ -310,6 +284,7 @@ export default {
 .btn-secondary {
   background: transparent;
 }
+
 @media (max-width: 1440px) {
   .heart-1 {
     width: 377.25px;
@@ -319,8 +294,13 @@ export default {
     transform: rotate(350deg);
   }
 }
+
 /* Большие планшеты и маленькие десктопы (до 1200px) */
 @media (max-width: 1200px) {
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .heart-1 {
     width: 377.25px;
     height: 377.25px;
@@ -344,10 +324,6 @@ export default {
     right: -4%;
     transform: rotate(351deg);
   }
-
-  .advantages-grid {
-    gap: 25px;
-  }
 }
 
 /* Планшеты (до 992px) */
@@ -358,7 +334,6 @@ export default {
 
   .advantages-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
   }
 
   .advantage-card {
@@ -377,12 +352,12 @@ export default {
   }
 
   .advantages-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .advantage-card {
     padding: 30px 20px;
+    max-width: 100%;
   }
 
   .action-buttons {
@@ -416,6 +391,9 @@ export default {
 
 /* Маленькие мобильные устройства (до 480px) */
 @media (max-width: 480px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
   .heart-2 {
     width: 771px;
     height: 771px;
@@ -431,14 +409,6 @@ export default {
   .card-icon {
     width: 50px;
     height: 50px;
-  }
-
-  .advantage-card h3 {
-    font-size: 18px;
-  }
-
-  .advantage-card p {
-    font-size: 13px;
   }
 }
 

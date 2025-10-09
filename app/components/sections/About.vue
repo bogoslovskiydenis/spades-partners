@@ -39,65 +39,6 @@
           </p>
         </div>
       </div>
-
-      <!-- Новая секция: картинка слева, текст справа -->
-      <div class="benefits-wrapper">
-        <div class="benefits-image">
-          <img src="../../assets/images/imgSPServer.png" alt="Spades 3D" class="spade-image" />
-        </div>
-
-        <div class="benefits-list">
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Globe.png" alt="Globe icon" />
-              </div>
-              <h3 class="benefit-title">International brand</h3>
-            </div>
-            <p class="benefit-description">
-              Spades Partners is a stable and quickly growing company. We are officially licenced
-              and a reliable partner.
-            </p>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Vector.png" alt="Vector icon" />
-              </div>
-              <h3 class="benefit-title">Super Smart Search</h3>
-            </div>
-            <p class="benefit-description">
-              Revenue share, Hybrid and CPA deals. Personally tailored proposals to meet your needs.
-            </p>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Gear.png" alt="Gear icon" />
-              </div>
-              <h3 class="benefit-title">Control everything in one place</h3>
-            </div>
-            <p class="benefit-description">
-              Our retention team makes sure you get the most of your traffic!
-            </p>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Chart.png" alt="Chart icon" />
-              </div>
-              <h3 class="benefit-title">Work better together</h3>
-            </div>
-            <p class="benefit-description">
-              Fast and respectful. Always ready to provide you with top-notch assets and marketing
-              data.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -154,7 +95,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-bottom: 100px;
 }
 
 .feature-card {
@@ -177,91 +117,16 @@
   margin: 0;
 }
 
-/* Новая секция с картинкой слева и текстом справа */
-.benefits-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.benefits-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.spade-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-}
-
-.benefits-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-}
-
-.benefit-item {
-  max-width: 413px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.benefit-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.benefit-icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .benefit-icon img {
   width: 24px;
   height: 24px;
   object-fit: contain;
 }
 
-.benefit-title {
-  font-size: 18px;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0;
-  line-height: 1.4;
-}
-
-.benefit-description {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-}
-
 /*Respons для 1024px */
 @media (max-width: 1024px) {
   .about-title {
     font-size: 42px;
-  }
-
-  .benefits-wrapper {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .benefits-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px 40px;
   }
 }
 
@@ -281,7 +146,7 @@
 
 @media (max-width: 768px) {
   .about-container {
-    padding: 80px 16px;
+    padding: 0 16px;
   }
 
   .about-title {
@@ -290,21 +155,10 @@
 
   .about-features {
     grid-template-columns: 1fr;
-    margin-bottom: 60px;
   }
 
   .feature-card:last-child {
     grid-column: auto;
-  }
-
-  .benefits-wrapper {
-    gap: 40px;
-  }
-
-  /* benefits-list снова в 1 столбец */
-  .benefits-list {
-    grid-template-columns: 1fr;
-    gap: 30px;
   }
 
   .feature-card {
@@ -320,14 +174,6 @@
 
   .about-subtitle {
     font-size: 14px;
-  }
-
-  .benefit-title {
-    font-size: 16px;
-  }
-
-  .benefit-description {
-    font-size: 13px;
   }
 
   .feature-title {

@@ -6,6 +6,7 @@
       <Header />
       <Hero />
       <About />
+      <Comissions />
       <WhyUs />
       <OurBrands />
       <Testimonials />
@@ -22,6 +23,7 @@ import About from '../components/sections/About.vue';
 import WhyUs from '../components/sections/WhyUs.vue';
 import OurBrands from '../components/sections/OurBrands.vue';
 import Testimonials from '../components/sections/Testimonials.vue';
+import Comissions from '../components/sections/Comissions.vue';
 </script>
 
 <style scoped>

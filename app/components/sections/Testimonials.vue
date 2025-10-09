@@ -121,12 +121,15 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import card1 from '../../assets/images/card1.png';
+import card2 from '../../assets/images/card2.png';
+import card3 from '../../assets/images/card3.png';
 
 const testimonials = ref([
   {
     id: 1,
     brand: 'iGamingHub',
-    logo: 'https://via.placeholder.com/120x40/ff0000/ffffff?text=iGamingHub',
+    logo: card1,
     text: 'iGamingHub and Spades Partners is a one of a kind team in both the iGaming and cryptocurrency space. We are honored to have our brand affiliated with one of the highest performing affiliate programs in the space. Looking forward to our continued partnership with the team!',
     author: 'John Smith',
     role: 'CEO, iGamingHub',
@@ -134,7 +137,7 @@ const testimonials = ref([
   {
     id: 2,
     brand: 'Casino Maestro',
-    logo: 'https://via.placeholder.com/120x40/333333/ffffff?text=Maestro',
+    logo: card2,
     text: "Spades Partners is one of the best affiliate programs we've worked with. Their team is professional, responsive, and always looking for ways to help us succeed. The commission structure is fair and payments are always on time.",
     author: 'Maria Garcia',
     role: 'Marketing Director',
@@ -142,7 +145,7 @@ const testimonials = ref([
   {
     id: 3,
     brand: 'Voutilainet',
-    logo: 'https://via.placeholder.com/120x40/4a5568/ffffff?text=Voutilainet',
+    logo: card3,
     text: 'Spades Partners has been an incredible experience for us. We have grown our business significantly with their help. Their honest partnership and willingness to work with us to optimize our strategy has been invaluable.',
     author: 'Alex Johnson',
     role: 'Founder',
@@ -150,7 +153,7 @@ const testimonials = ref([
   {
     id: 4,
     brand: 'BetHub Pro',
-    logo: 'https://via.placeholder.com/120x40/059669/ffffff?text=BetHub',
+    logo: card3,
     text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
     author: 'Sarah Chen',
     role: 'Head of Partnerships',
@@ -250,6 +253,7 @@ onUnmounted(() => {
   max-width: 1440px;
   padding-left: 80px;
   padding-right: 80px;
+  padding-bottom: 80px;
   margin: 0 auto;
   z-index: 2;
 }
@@ -268,38 +272,9 @@ onUnmounted(() => {
 }
 
 .faq-section {
-  padding: 60px 20px 80px;
   position: relative;
   z-index: 1;
   margin-top: -100px;
-}
-
-.faq-content {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-}
-
-.faq-left {
-  flex: 1;
-}
-
-.faq-right {
-  flex: 0 0 400px;
-  position: relative;
-}
-
-.faq-image {
-  position: sticky;
-  top: 100px;
-  width: 100%;
-}
-
-.faq-image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 60px rgba(255, 100, 50, 0.3));
 }
 
 .section-header {
@@ -338,10 +313,11 @@ onUnmounted(() => {
 .carousel-arrow {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  border: 1px solid #b7c8ff29;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(44px);
+
   color: #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -461,7 +437,7 @@ onUnmounted(() => {
 
 .faq-item.active {
   background: rgba(183, 200, 255, 0.06);
-  border-color: rgba(255, 100, 50, 0.3);
+  border-color: #cd9f55;
 }
 
 .faq-question {
@@ -481,21 +457,11 @@ onUnmounted(() => {
 }
 
 .faq-question:hover {
-  color: #ff6432;
+  color: #cd9f55;
 }
 
 .faq-question span:first-child {
   flex: 1;
-}
-
-.faq-badge {
-  padding: 4px 12px;
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
-  font-size: 11px;
-  font-weight: 600;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
 }
 
 .faq-icon {
@@ -506,7 +472,7 @@ onUnmounted(() => {
 
 .faq-item.active .faq-icon {
   transform: rotate(180deg);
-  color: #ff6432;
+  color: #cd9f55;
 }
 
 .faq-answer {
