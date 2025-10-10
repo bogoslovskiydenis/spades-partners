@@ -23,10 +23,10 @@
             <div class="card-icon">
               <img src="../../assets/images/payment.png" alt="payment" />
             </div>
-            <h3>Payment methods</h3>
+            <h4>Payment methods</h4>
             <p>
-              Choose from multiple payment options for a comfortable and safe deposit and withdrawal
-              of your funds.
+              Various payment methods for withdrawals in fiat or crypto currencies. Bank transfer,
+              Neteller, Skrill, CoinsPaid.
             </p>
           </div>
 
@@ -34,10 +34,9 @@
             <div class="card-icon">
               <img src="../../assets/images/Icon1.png" alt="payment" />
             </div>
-            <h3>Personal manager</h3>
+            <h4>Personal manager</h4>
             <p>
-              Every player is assigned a personal manager who will answer all your questions and
-              offer the best bonuses.
+              Every partner is assigned a personal manager to help with anything that might come up.
             </p>
           </div>
 
@@ -45,10 +44,10 @@
             <div class="card-icon">
               <img src="../../assets/images/retencion.png" alt="retencion" />
             </div>
-            <h3>Player retention</h3>
+            <h4>Player retention</h4>
             <p>
-              High conversion rates, low churn. Work with us - together we will succeed and achieve
-              the best results.
+              High conversion rates. Loyalty system & multiple bonus programs. Support and VIP
+              service.
             </p>
           </div>
 
@@ -56,10 +55,10 @@
             <div class="card-icon">
               <img src="../../assets/images/parther.png" alt="parther" />
             </div>
-            <h3>TOP partnerships</h3>
+            <h4>True partnership</h4>
             <p>
-              We collaborate with top brands. Here are a few of them: Spin Casino, High Stakes,
-              Royal Flush and more.
+              No negative carry over, no hidden fees, no withdrawal commissions, no bundling between
+              brands.
             </p>
           </div>
         </div>
@@ -218,22 +217,16 @@ export default {
 }
 
 .card-icon img {
-  width: 100%;
-  height: 100%;
   object-fit: contain;
 }
 
-.advantage-card h3 {
-  font-family: Font, sans-serif;
+.advantage-card h4 {
   font-weight: 600;
-  font-size: 20px;
-  leading-trim: NONE;
-  line-height: 138%;
   text-align: center;
+  color: #f2f2ff;
 }
 
 .advantage-card p {
-  font-family: Font, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 153%;

@@ -93,6 +93,14 @@
   align-items: center;
 }
 
+/* Добавляем адаптивность для главной картинки */
+.spade-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .benefits-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -114,8 +122,7 @@
 
 .benefit-icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,6 +176,12 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 56px 48px;
   }
+
+  /* Дополнительно ограничиваем картинку на планшетах */
+  .benefits-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -176,12 +189,22 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
   .benefit-title {
     font-size: 16px;
   }
 
   .benefit-description {
     font-size: 13px;
+  }
+
+  /* На мобильных делаем картинку еще меньше */
+  .benefits-image {
+    max-width: 100%;
+  }
+
+  .benefit-item {
+    max-width: 100%;
   }
 }
 </style>

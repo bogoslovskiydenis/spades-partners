@@ -154,7 +154,8 @@ const handleSubmit = async () => {
 }
 
 .contact-form {
-  width: 453px;
+  width: 100%;
+  max-width: 453px;
   gap: 24px;
   opacity: 1;
   padding: 32px;
@@ -224,7 +225,6 @@ const handleSubmit = async () => {
   box-shadow: 0 8px 24px rgba(201, 160, 95, 0.3);
 }
 .submit-button span {
-  font-family: Font/Text, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -305,6 +305,10 @@ const handleSubmit = async () => {
   .contact-title {
     font-size: 40px;
     margin-bottom: 40px;
+  }
+
+  .contact-page {
+    padding: 0px 16px;
   }
 
   .form-input,
