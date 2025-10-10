@@ -1,112 +1,81 @@
-/* Импорт шрифта Wix Madefor Display */
-@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700&display=swap');
-
-/* CSS переменные */
-:root {
-    --font-primary: 'Wix Madefor Display', sans-serif;
-    --color-primary: #FFFFFF;
-    --color-background: #1a1a1a;
-    --color-accent: #d4af37; /* золотистый для "Quality" */
-}
-
-/* Глобальные стили */
+/* Базовые стили для всего приложения */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    overflow-x: hidden; /* Убирает горизонтальную прокрутку */
-}
-
 body {
-    font-family: var(--font-primary);
-    background-color: var(--color-background);
-    color: var(--color-primary);
-    line-height: 1.6;
+    font-family: 'Wix Madefor Display', sans-serif;
+    color: #010101;
+    background-color: #ffffff;
 }
 
-/* Типографика */
+/* Типография для заголовков */
 h1 {
-    font-size: 80px;
+    font-family: 'Wix Madefor Display', sans-serif;
     font-weight: 500;
-    line-height: 1.1;
+    font-size: 80px;
+    line-height: 80px;
 }
 
 h2 {
-    font-size: 64px;
+    font-family: 'Wix Madefor Display', sans-serif;
     font-weight: 500;
-    line-height: 1.1;
+    font-size: 64px;
+    line-height: 64px;
 }
 
 h3 {
-    font-size: 32px;
+    font-family: 'Wix Madefor Display', sans-serif;
     font-weight: 500;
+    font-size: 32px;
+    line-height: 40px;
 }
 
 h4 {
-    font-size: 28px;
-    font-weight: 400;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
 }
 
-p {
+h5 {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+h6 {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 500;
     font-size: 16px;
+    line-height: 20px;
+}
+
+/* Типография для текстов */
+p {
+    font-family: 'Wix Madefor Display', sans-serif;
     font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
 
-.container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
-}
-
-.text-accent {
-    color: var(--color-accent);
-}
-
-/* Адаптив для изображений */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Адаптив для мобильных устройств */
+/* Адаптивная типография для мобильных устройств */
 @media (max-width: 768px) {
     h1 {
-        font-size: 48px;
+        font-size: 44px;
+        line-height: 48px;
     }
 
     h2 {
         font-size: 36px;
+        line-height: 44px;
     }
 
     h3 {
         font-size: 24px;
-    }
-
-    h4 {
-        font-size: 20px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    .container {
-        padding: 0 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 36px;
-    }
-
-    h2 {
-        font-size: 28px;
+        line-height: 32px;
     }
 }
