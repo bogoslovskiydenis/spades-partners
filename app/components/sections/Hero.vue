@@ -87,7 +87,6 @@ const handleBecomePartner = () => {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   background-color: #010101;
 }
@@ -166,7 +165,6 @@ const handleBecomePartner = () => {
   align-items: center;
   text-align: center;
   width: 100%;
-  padding-top: 40px;
 }
 
 .hero-title {
@@ -203,7 +201,6 @@ const handleBecomePartner = () => {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 40px 0;
 }
 
 .spades-image {
@@ -353,20 +350,12 @@ const handleBecomePartner = () => {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: 100svh;
-  }
-
   .hero-container {
     padding: 80px 24px;
   }
 
   .hero-content {
     min-height: calc(100svh - 160px);
-  }
-
-  .hero-top {
-    padding-top: 30px;
   }
 
   .hero-title {
@@ -378,10 +367,6 @@ const handleBecomePartner = () => {
   .hero-description {
     font-size: 14px;
     max-width: 90%;
-  }
-
-  .hero-spades {
-    padding: 30px 0;
   }
 
   .spades-image {
@@ -428,10 +413,6 @@ const handleBecomePartner = () => {
     line-height: 1.45;
     max-width: 100%;
     padding: 0 5px;
-  }
-
-  .hero-spades {
-    padding: 20px 0;
   }
 
   .spades-image {
