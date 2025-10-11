@@ -3,8 +3,13 @@
     <!-- Секция отзывов -->
     <div class="testimonials-section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">What people are saying</h2>
+        <div class="section-header" v-if="data">
+          <div class="header-content">
+            <h2 class="section-title">{{ data.review_title }}</h2>
+            <p class="section-subtitle" v-if="data.review_subtitle">
+              {{ data.review_subtitle }}
+            </p>
+          </div>
 
           <div class="carousel-controls">
             <button
@@ -46,14 +51,15 @@
             <div
               class="testimonials-container"
               :style="{ transform: `translateX(-${currentSlide * slideWidth}px)` }"
+              v-if="data && data.reviews"
             >
               <div
-                v-for="testimonial in testimonials"
-                :key="testimonial.id"
+                v-for="(testimonial, index) in data.reviews"
+                :key="index"
                 class="testimonial-card"
               >
                 <div class="brand-logo">
-                  <img :src="testimonial.logo" :alt="testimonial.brand" />
+                  <img :src="testimonial.icon" alt="Brand logo" />
                 </div>
 
                 <div class="cards">
@@ -61,7 +67,7 @@
                     <img src="../../assets/images/brekets.png" alt="brekets" />
                   </div>
 
-                  <p class="testimonial-text">{{ testimonial.text }}</p>
+                  <p class="testimonial-text">{{ testimonial.title }}</p>
                 </div>
               </div>
             </div>
@@ -73,17 +79,22 @@
     <!-- Секция FAQ -->
     <div class="faq-section">
       <div class="container">
-        <h2 class="section-title">FAQ</h2>
+        <div class="faq-header">
+          <h2 class="section-title">FAQ</h2>
+          <p class="section-subtitle" v-if="data && data.faq_subtitle">
+            {{ data.faq_subtitle }}
+          </p>
+        </div>
 
-        <div class="faq-list">
+        <div class="faq-list" v-if="data && data.faq">
           <div
-            v-for="(item, index) in faqItems"
+            v-for="(item, index) in data.faq"
             :key="index"
             class="faq-item"
             :class="{ active: activeIndex === index }"
           >
             <button class="faq-question" @click="toggleFaq(index)">
-              <span>{{ item.question }}</span>
+              <span>{{ item.value_1 }}</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path
                   d="M5 7.5L10 12.5L15 7.5"
@@ -96,7 +107,7 @@
             </button>
 
             <div class="faq-answer" v-show="activeIndex === index">
-              <p>{{ item.answer }}</p>
+              <p>{{ item.value_2 }}</p>
             </div>
           </div>
         </div>
@@ -107,86 +118,9 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import card1 from '../../assets/images/card1.png';
-import card2 from '../../assets/images/card2.png';
-import card3 from '../../assets/images/card3.png';
 
-const testimonials = ref([
-  {
-    id: 1,
-    brand: 'iGamingHub',
-    logo: card1,
-    text: 'iGamingHub and Spades Partners is a one of a kind team in both the iGaming and cryptocurrency space. We are honored to have our brand affiliated with one of the highest performing affiliate programs in the space. Looking forward to our continued partnership with the team!',
-  },
-  {
-    id: 2,
-    brand: 'Casino Maestro',
-    logo: card2,
-    text: "Spades Partners is one of the best affiliate programs we've worked with. Their team is professional, responsive, and always looking for ways to help us succeed. The commission structure is fair and payments are always on time.",
-  },
-  {
-    id: 3,
-    brand: 'Voutilainet',
-    logo: card3,
-    text: 'Spades Partners has been an incredible experience for us. We have grown our business significantly with their help. Their honest partnership and willingness to work with us to optimize our strategy has been invaluable.',
-  },
-  {
-    id: 4,
-    brand: 'BetHub Pro',
-    logo: card3,
-    text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
-  },
-  {
-    id: 5,
-    brand: 'BetHub Pro',
-    logo: card3,
-    text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
-  },
-  {
-    id: 6,
-    brand: 'BetHub Pro',
-    logo: card3,
-    text: 'Working with Spades Partners has transformed our affiliate business. The support team is always available, and they provide excellent marketing materials and insights that help us convert more traffic.',
-  },
-]);
-
-const faqItems = ref([
-  {
-    question: 'How it works',
-    answer:
-      'Our affiliate program is simple: you promote our casino brands, drive traffic, and earn commissions on player activity. We provide you with tracking links, marketing materials, and dedicated support to help you succeed.',
-  },
-  {
-    question: 'What is a sub-affiliate program?',
-    answer:
-      "A sub-affiliate program allows you to refer other affiliates to our program and earn a percentage of their commissions. It's a great way to scale your earnings by building a network of affiliates under you.",
-  },
-  {
-    question: 'What is an affiliate program?',
-    answer:
-      'An affiliate program is a partnership where you promote our casino brands and earn commissions based on the players you refer. You get paid for driving quality traffic that converts into real money players.',
-  },
-  {
-    question: 'Do I need to have a website to join?',
-    answer:
-      "While having a website helps, it's not mandatory. You can promote our brands through social media, YouTube, email marketing, or other traffic sources. We welcome affiliates from various backgrounds and marketing channels.",
-  },
-  {
-    question: 'How and when will I get paid?',
-    answer:
-      "Payments are processed monthly, typically by the 15th of each month for the previous month's earnings. We offer multiple payment methods including bank transfer, cryptocurrency, and e-wallets. Minimum payout threshold is $100.",
-  },
-  {
-    question: 'Can I get an exclusive offer or promotion to use on my website?',
-    answer:
-      'Yes! We work closely with our top-performing affiliates to create exclusive offers and promotions tailored to your audience. Contact your affiliate manager to discuss custom deals that can help boost your conversions.',
-  },
-  {
-    question: 'How do I get my tracking referral link and banners?',
-    answer:
-      "Once you're approved and logged into your affiliate dashboard, you can generate tracking links and access our marketing materials library. We provide banners, landing pages, and promotional content in various sizes and languages.",
-  },
-]);
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 
 const currentSlide = ref(0);
 const activeIndex = ref(0);
@@ -201,7 +135,8 @@ const cardsPerView = computed(() => {
 });
 
 const maxSlide = computed(() => {
-  return Math.max(0, testimonials.value.length - cardsPerView.value);
+  if (!data.value || !data.value.reviews) return 0;
+  return Math.max(0, data.value.reviews.length - cardsPerView.value);
 });
 
 const updateDimensions = () => {
@@ -274,9 +209,14 @@ onUnmounted(() => {
   margin-bottom: 60px;
 }
 
+.header-content {
+  flex: 1;
+}
+
 .carousel-controls {
   display: flex;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .section-title {
@@ -284,16 +224,28 @@ onUnmounted(() => {
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
   margin: 0;
 }
 
-.faq-section .section-title {
+.faq-header {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.faq-left .section-title {
-  text-align: left;
+.faq-header .section-title {
+  margin-bottom: 16px;
+}
+
+.faq-header .section-subtitle {
+  margin: 0 auto;
 }
 
 .carousel-container {
@@ -307,7 +259,6 @@ onUnmounted(() => {
   border: 1px solid #b7c8ff29;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(44px);
-
   color: #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -359,12 +310,18 @@ onUnmounted(() => {
 
 .brand-logo {
   margin-bottom: 24px;
-  height: 40px;
+  width: 329px;
+  height: 92px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .brand-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 
@@ -374,6 +331,17 @@ onUnmounted(() => {
   font-size: 16px;
   line-height: 153%;
   color: #e6e5ffa3;
+}
+
+.cards {
+  display: flex;
+  gap: 24px;
+}
+
+.quote-icon img {
+  max-width: 32.33px;
+  max-height: 24.42px;
+  opacity: 1;
 }
 
 .faq-list {
@@ -447,23 +415,10 @@ onUnmounted(() => {
   font-size: 15px;
   line-height: 1.7;
 }
-.cards {
-  display: flex;
-  gap: 24px;
-}
 
-.quote-icon img {
-  max-width: 32.3271484375px;
-  max-height: 24.41628074645996px;
-  opacity: 1;
-}
 @media (max-width: 1200px) {
   .testimonial-card {
     min-width: calc(50% - 12px);
-  }
-
-  .faq-right {
-    flex: 0 0 300px;
   }
 }
 
@@ -475,11 +430,19 @@ onUnmounted(() => {
   .section-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 24px;
+  }
+
+  .carousel-controls {
+    align-self: flex-end;
   }
 
   .section-title {
     font-size: 36px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
   }
 
   .carousel-arrow {
@@ -489,35 +452,35 @@ onUnmounted(() => {
 
   .testimonial-card {
     min-width: 100%;
+    padding: 24px;
+  }
+
+  .brand-logo {
+    width: 100%;
+    max-width: 280px;
+    height: 78px;
+    margin-bottom: 20px;
+  }
+
+  .quote-icon img {
+    max-width: 24px;
+    max-height: 18px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+  }
+
+  .cards {
+    gap: 16px;
   }
 
   .testimonials-section {
     padding: 60px 20px 40px;
   }
 
-  .faq-section .section-title {
+  .faq-header {
     margin-bottom: 40px;
-  }
-
-  .faq-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .faq-right {
-    flex: 1;
-    width: 100%;
-  }
-
-  .faq-left .section-title {
-    text-align: center;
-  }
-
-  .faq-image {
-    position: relative;
-    top: 0;
-    max-width: 400px;
-    margin: 0 auto;
   }
 
   .faq-list {
@@ -526,6 +489,64 @@ onUnmounted(() => {
 
   .faq-item {
     padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 13px;
+  }
+
+  .section-header {
+    gap: 20px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+  }
+
+  .brand-logo {
+    width: 100%;
+    max-width: 240px;
+    height: 65px;
+    margin-bottom: 16px;
+  }
+
+  .quote-icon img {
+    max-width: 20px;
+    max-height: 15px;
+  }
+
+  .testimonial-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .cards {
+    gap: 12px;
+  }
+
+  .faq-item {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .faq-question {
+    font-size: 15px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+    padding-top: 16px;
   }
 }
 </style>

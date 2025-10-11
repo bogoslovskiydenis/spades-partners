@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-page">
+  <div id="contact" class="contact-page">
     <!-- Декоративное изображение слева -->
     <div class="decoration-left">
       <img src="../../assets/images/contactheart1.png" alt="" />
@@ -11,7 +11,12 @@
     </div>
 
     <div class="contact-container">
-      <h1 class="contact-title">Contact us</h1>
+      <div class="contact-header" v-if="data">
+        <h1 class="contact-title">{{ data.contact_title || 'Contact us' }}</h1>
+        <p class="contact-subtitle" v-if="data.contact_subtitle">
+          {{ data.contact_subtitle }}
+        </p>
+      </div>
 
       <form @submit.prevent="handleSubmit" class="contact-form">
         <div class="form-group">
@@ -41,9 +46,12 @@
             required
           ></textarea>
         </div>
+
         <button type="submit" class="submit-button" :disabled="isSubmitting">
-          <span>Send</span>
-          <img src="../../assets/images/contact_sabmit.png" />
+          <span v-if="!isSubmitting">Send</span>
+          <span v-else>Sending...</span>
+          <img v-if="!isSubmitting" src="../../assets/images/contact_sabmit.png" />
+          <div v-else class="spinner"></div>
         </button>
       </form>
     </div>
@@ -51,7 +59,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 
 const form = ref({
   name: '',
@@ -61,31 +72,78 @@ const form = ref({
 });
 
 const isSubmitting = ref(false);
+const submitStatus = ref(null);
 
 const handleSubmit = async () => {
   isSubmitting.value = true;
+  submitStatus.value = null;
+
+  console.log('📧 Starting form submission...');
+  console.log('📝 Form data:', {
+    name: form.value.name,
+    email: form.value.email,
+    phone: form.value.phone,
+    message: form.value.message,
+  });
 
   try {
-    // Здесь будет логика отправки формы
-    console.log('Form submitted:', form.value);
+    const formData = new FormData();
+    formData.append('name', form.value.name);
+    formData.append('email', form.value.email);
+    formData.append('phone', form.value.phone);
+    formData.append('message', form.value.message);
 
-    // Симуляция отправки
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log('🚀 Sending request to API...');
 
-    alert('Message sent successfully!');
+    const response = await fetch(
+      'https://goldengenie.lenddev.com.ua/wp-content/themes/api/app/pages/mailer.php',
+      {
+        method: 'POST',
+        body: formData,
+      }
+    );
 
-    // Очистка формы
-    form.value = {
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    };
+    console.log('📡 Response status:', response.status);
+    console.log('📡 Response statusText:', response.statusText);
+    console.log('📡 Response ok:', response.ok);
+
+    // Читаем тело ответа
+    const responseText = await response.text();
+    console.log('📦 Response body:', responseText);
+
+    // Пытаемся распарсить JSON если возможно
+    try {
+      const responseJson = JSON.parse(responseText);
+      console.log('📄 Parsed JSON response:', responseJson);
+    } catch (e) {
+      console.log('⚠️ Response is not JSON, raw text:', responseText);
+    }
+
+    if (response.ok) {
+      console.log('✅ Form submitted successfully!');
+      submitStatus.value = 'success';
+
+      // Очистка формы
+      form.value = {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      };
+      console.log('🧹 Form cleared');
+    } else {
+      console.error('❌ Form submission failed with status:', response.status);
+      submitStatus.value = 'error';
+    }
   } catch (error) {
-    alert('Error sending message. Please try again.');
-    console.error(error);
+    console.error('💥 Error sending message:', error);
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    submitStatus.value = 'error';
   } finally {
     isSubmitting.value = false;
+    console.log('🏁 Form submission completed');
   }
 };
 </script>
@@ -144,13 +202,28 @@ const handleSubmit = async () => {
   flex-direction: column;
 }
 
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
 .contact-title {
   font-size: 56px;
   font-weight: 600;
   color: #fff;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 16px;
   letter-spacing: -0.02em;
+}
+
+.contact-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  max-width: 100%;
+  margin: 0;
 }
 
 .contact-form {
@@ -165,6 +238,7 @@ const handleSubmit = async () => {
   background: #b7c8ff0a;
   backdrop-filter: blur(44px);
   border-bottom: 1px solid #b7c8ff29;
+  position: relative;
 }
 
 .form-group {
@@ -182,6 +256,18 @@ const handleSubmit = async () => {
   color: #fff;
   transition: all 0.3s ease;
   font-family: inherit;
+}
+
+/* 🎨 УБИРАЕМ БЕЛЫЙ ФОН ПРИ АВТОЗАПОЛНЕНИИ - ДОБАВЛЕНО ЗДЕСЬ */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #fff;
 }
 
 .form-input::placeholder,
@@ -224,6 +310,7 @@ const handleSubmit = async () => {
   gap: 10px;
   box-shadow: 0 8px 24px rgba(201, 160, 95, 0.3);
 }
+
 .submit-button span {
   font-weight: 500;
   font-size: 16px;
@@ -241,16 +328,23 @@ const handleSubmit = async () => {
 }
 
 .submit-button:disabled {
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
-.submit-button svg {
-  transition: transform 0.3s ease;
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
 }
 
-.submit-button:hover:not(:disabled) svg {
-  transform: translateX(4px);
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1920px) {
@@ -304,7 +398,15 @@ const handleSubmit = async () => {
 @media (max-width: 768px) {
   .contact-title {
     font-size: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 12px;
+  }
+
+  .contact-subtitle {
+    font-size: 14px;
+  }
+
+  .contact-header {
+    margin-bottom: 32px;
   }
 
   .contact-page {
@@ -331,6 +433,7 @@ const handleSubmit = async () => {
     z-index: 0;
     opacity: 0.8;
   }
+
   .decoration-right {
     position: absolute;
     right: 0%;
@@ -344,6 +447,29 @@ const handleSubmit = async () => {
 }
 
 @media (max-width: 480px) {
+  .contact-title {
+    font-size: 32px;
+  }
+
+  .contact-subtitle {
+    font-size: 13px;
+  }
+
+  .form-input,
+  .form-textarea {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  .submit-button {
+    padding: 13px 28px;
+    font-size: 15px;
+  }
+
+  .submit-button span {
+    font-size: 15px;
+  }
+
   .decoration-left {
     position: absolute;
     left: -24%;

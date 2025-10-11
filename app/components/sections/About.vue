@@ -1,42 +1,19 @@
 <template>
   <section id="about" class="about">
     <div class="about-container">
-      <div class="about-header">
-        <h2 class="about-title">About Spades Partners</h2>
-        <p class="about-subtitle">
-          Join our affiliate program and enjoy the benefits of working with real professionals.
-        </p>
+      <div class="about-header" v-if="data">
+        <h2 class="about-title">{{ data.about_title }}</h2>
+        <p class="about-subtitle">{{ data.about_sub_title }}</p>
       </div>
 
       <div class="about-image">
         <img src="../../assets/images/about-laptop.png" alt="Casino laptop" class="laptop-image" />
       </div>
 
-      <div class="about-features">
-        <div class="feature-card">
-          <h3 class="feature-title">Technologies</h3>
-          <p class="feature-description">
-            We offer outstanding gambling experience and turn it into the best deal for every
-            player, full of winning opportunities and fair outcomes. It will help you achieve the
-            desired results in a short time.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <h3 class="feature-title">Professional team</h3>
-          <p class="feature-description">
-            Our experienced account managers are always ready to help you generate a substantial
-            income. They can serve our clients in various languages and help increase their profits.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <h3 class="feature-title">Newest games</h3>
-          <p class="feature-description">
-            We work with the most popular suppliers within the gaming industry to bring the latest
-            online casino games, which make our gambling affiliate program stand out. Don't waste
-            another minute, come and join us!
-          </p>
+      <div class="about-features" v-if="data && data.about_list">
+        <div class="feature-card" v-for="(item, index) in data.about_list" :key="index">
+          <h3 class="feature-title">{{ item.title }}</h3>
+          <p class="feature-description">{{ item.text }}</p>
         </div>
       </div>
     </div>
@@ -44,7 +21,10 @@
 </template>
 
 <script setup>
-// Компонент About секции
+import { computed } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 </script>
 
 <style scoped>
@@ -117,20 +97,12 @@
   margin: 0;
 }
 
-.benefit-icon img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-/*Respons для 1024px */
 @media (max-width: 1024px) {
   .about-title {
     font-size: 42px;
   }
 }
 
-/* Медиа-запросы для about-features и benefits-list */
 @media (max-width: 900px) {
   .about-features {
     grid-template-columns: repeat(2, 1fr);

@@ -1,18 +1,20 @@
 <template>
   <header class="header">
     <div class="header-container">
-      <div class="header-logo">
-        <img src="../../assets/images/logo-spade.png" alt="Spades Partners" class="logo-image" />
+      <div class="header-logo" v-if="data">
+        <img :src="data.logo" alt="Spades Partners" class="logo-image" />
       </div>
 
-      <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }">
-        <a href="#about" class="nav-link" @click="scrollToSection('about')">About</a>
-        <a href="#comissions" class="nav-link" @click="scrollToSection('comissions')">Comissions</a>
-        <a href="#why-us" class="nav-link" @click="scrollToSection('why-us')">Why us</a>
-        <a href="#brands" class="nav-link" @click="scrollToSection('brands')">Our brands</a>
-        <a href="#testimonials" class="nav-link" @click="scrollToSection('testimonials')"
-          >Testimonials</a
+      <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }" v-if="data && data.menu">
+        <a
+          v-for="(item, index) in data.menu"
+          :key="index"
+          :href="item.permalink"
+          class="nav-link"
+          @click="scrollToSection(item.permalink)"
         >
+          {{ item.title }}
+        </a>
       </nav>
 
       <div class="header-actions">
@@ -33,7 +35,10 @@
 </template>
 
 <script setup>
-import { ref, onUnmounted } from 'vue';
+import { ref, computed, onUnmounted } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 
 const isMobileMenuOpen = ref(false);
 
@@ -52,24 +57,17 @@ const closeMenu = () => {
   document.body.style.overflow = '';
 };
 
-const scrollToSection = sectionId => {
-  // Предотвращаем стандартное поведение ссылки
+const scrollToSection = permalink => {
   event.preventDefault();
-
-  // Закрываем мобильное меню
   closeMenu();
 
-  // Находим секцию
+  const sectionId = permalink.replace('/#', '');
   const section = document.getElementById(sectionId);
 
   if (section) {
-    // Получаем высоту хедера для правильного offset
     const headerHeight = 80;
-
-    // Получаем позицию секции
     const sectionTop = section.offsetTop - headerHeight;
 
-    // Плавный скролл к секции
     window.scrollTo({
       top: sectionTop,
       behavior: 'smooth',

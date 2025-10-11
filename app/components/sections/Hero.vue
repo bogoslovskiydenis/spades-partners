@@ -7,15 +7,15 @@
     <div class="hero-container">
       <div class="hero-content">
         <!-- Верхняя часть с текстом -->
-        <div class="hero-top">
+        <div class="hero-top" v-if="data">
           <h1 class="hero-title">
-            <span class="title-quality">Quality</span>
-            <span class="title-specialty">is our specialty</span>
+            <span v-for="(part, index) in parsedTitle" :key="index" :class="part.class">
+              {{ part.text }}
+            </span>
           </h1>
 
           <p class="hero-description">
-            Join Spades Partners program today and work with one of the best affiliates in the
-            online casino market.
+            {{ data.hero_sub_title }}
           </p>
         </div>
 
@@ -39,33 +39,12 @@
             </svg>
           </button>
 
-          <div class="hero-steps">
-            <div class="step">
+          <div class="hero-steps" v-if="data && data.hero_box">
+            <div class="step" v-for="(step, index) in data.hero_box" :key="index">
               <div class="step-icon">
-                <img src="../../assets/images/Icon1.png" alt="Register icon" />
+                <img :src="step.icon" :alt="step.text" />
               </div>
-              <p class="step-text">1. Register on a website</p>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">
-                <img src="../../assets/images/Icon2.png" alt="Create account icon" />
-              </div>
-              <p class="step-text">2. Create a partner account</p>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">
-                <img src="../../assets/images/Icon3.png" alt="Promote icon" />
-              </div>
-              <p class="step-text">3. Start to promote</p>
-            </div>
-
-            <div class="step">
-              <div class="step-icon">
-                <img src="../../assets/images/Icon4.png" alt="Earn icon" />
-              </div>
-              <p class="step-text">4. Earn lifetime revenue</p>
+              <p class="step-text">{{ step.text }}</p>
             </div>
           </div>
         </div>
@@ -75,6 +54,46 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
+
+const parsedTitle = computed(() => {
+  if (!data.value || !data.value.hero_title) return [];
+
+  const htmlString = data.value.hero_title;
+  const result = [];
+
+  // Ищем содержимое внутри <span>...</span>
+  const spanMatch = htmlString.match(/<span[^>]*>(.*?)<\/span>/);
+
+  if (spanMatch) {
+    // Текст внутри <span> - это "Quality"
+    result.push({
+      text: spanMatch[1],
+      class: 'title-quality',
+    });
+
+    // Текст после </span> - это "is our specialty"
+    const afterSpan = htmlString.split('</span>')[1];
+    if (afterSpan && afterSpan.trim()) {
+      result.push({
+        text: afterSpan.trim(),
+        class: 'title-specialty',
+      });
+    }
+  } else {
+    // Если нет <span>, весь текст будет specialty
+    result.push({
+      text: htmlString,
+      class: 'title-specialty',
+    });
+  }
+
+  return result;
+});
+
 const handleBecomePartner = () => {
   const contactSection = document.getElementById('contact');
   if (contactSection) {
@@ -139,7 +158,6 @@ const handleBecomePartner = () => {
   z-index: 2;
 }
 
-/* Единый контейнер - стандарт для всех секций */
 .hero-container {
   position: relative;
   z-index: 2;
@@ -158,7 +176,6 @@ const handleBecomePartner = () => {
   justify-content: space-between;
 }
 
-/* Верхняя часть с текстом */
 .hero-top {
   display: flex;
   flex-direction: column;
@@ -195,7 +212,6 @@ const handleBecomePartner = () => {
   max-width: 600px;
 }
 
-/* Анимированная картинка пик */
 .hero-spades {
   display: flex;
   align-items: center;
@@ -219,7 +235,6 @@ const handleBecomePartner = () => {
   }
 }
 
-/* Нижняя часть с кнопкой и шагами */
 .hero-bottom {
   display: flex;
   flex-direction: column;
@@ -306,28 +321,6 @@ const handleBecomePartner = () => {
   text-align: center;
   color: #e6e5ffa3;
   margin: 0;
-}
-
-/* Медиа-запросы */
-@media (min-width: 1441px) {
-  .hero-title {
-    font-size: 72px;
-  }
-
-  .hero-steps {
-    gap: 24px;
-  }
-
-  .step {
-    min-height: 160px;
-    padding: 40px 20px;
-  }
-}
-
-@media (max-width: 1440px) and (min-width: 1025px) {
-  .hero-container {
-    padding: 100px 60px;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -419,16 +412,6 @@ const handleBecomePartner = () => {
     max-width: 60%;
   }
 
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-15px) rotate(2deg);
-    }
-  }
-
   .hero-button {
     padding: 13px 30px;
     font-size: 13px;
@@ -473,41 +456,6 @@ const handleBecomePartner = () => {
     font-size: 12px;
     line-height: 1.35;
     flex: 1;
-  }
-}
-
-@media (max-width: 375px) {
-  .hero-title {
-    font-size: 24px;
-  }
-
-  .hero-description {
-    font-size: 12px;
-  }
-
-  .spades-image {
-    max-width: 55%;
-  }
-
-  .hero-button {
-    padding: 12px 26px;
-    font-size: 12px;
-  }
-
-  .step {
-    padding: 10px 14px;
-    gap: 10px;
-    min-height: 52px;
-    height: 52px;
-  }
-
-  .step-icon {
-    width: 26px;
-    height: 26px;
-  }
-
-  .step-text {
-    font-size: 11px;
   }
 }
 </style>

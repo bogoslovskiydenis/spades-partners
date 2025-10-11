@@ -1,60 +1,27 @@
 <template>
   <section id="comissions" class="commissions">
     <div class="commissions-container">
+      <div class="commissions-header" v-if="data">
+        <h2 class="commissions-title">{{ data.partners_title || 'Commissions' }}</h2>
+        <p class="commissions-subtitle" v-if="data.partners_sub_title">
+          {{ data.partners_sub_title }}
+        </p>
+      </div>
+
       <div class="benefits-wrapper">
-        <div class="benefits-image">
-          <img src="../../assets/images/imgSPServer.png" alt="Spades 3D" class="spade-image" />
+        <div class="benefits-image" v-if="data">
+          <img :src="data.benefit_img" alt="Spades 3D" class="spade-image" />
         </div>
 
-        <div class="benefits-list">
-          <div class="benefit-item">
+        <div class="benefits-list" v-if="data && data.benefit_list">
+          <div class="benefit-item" v-for="(item, index) in data.benefit_list" :key="index">
             <div class="benefit-header">
               <div class="benefit-icon">
-                <img src="../../assets/images/Globe.png" alt="Globe icon" />
+                <img :src="item.icon" :alt="item.title" />
               </div>
-              <h3 class="benefit-title">International brand</h3>
+              <h3 class="benefit-title">{{ item.title }}</h3>
             </div>
-            <p class="benefit-description">
-              Spades Partners is a stable and quickly growing company. We are officially licenced
-              and a reliable partner.
-            </p>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Vector.png" alt="Vector icon" />
-              </div>
-              <h3 class="benefit-title">Super Smart Search</h3>
-            </div>
-            <p class="benefit-description">
-              Revenue share, Hybrid and CPA deals. Personally tailored proposals to meet your needs.
-            </p>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Gear.png" alt="Gear icon" />
-              </div>
-              <h3 class="benefit-title">Control everything in one place</h3>
-            </div>
-            <p class="benefit-description">
-              Our retention team makes sure you get the most of your traffic!
-            </p>
-          </div>
-
-          <div class="benefit-item">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img src="../../assets/images/Chart.png" alt="Chart icon" />
-              </div>
-              <h3 class="benefit-title">Work better together</h3>
-            </div>
-            <p class="benefit-description">
-              Fast and respectful. Always ready to provide you with top-notch assets and marketing
-              data.
-            </p>
+            <p class="benefit-description">{{ item.text }}</p>
           </div>
         </div>
       </div>
@@ -63,7 +30,10 @@
 </template>
 
 <script setup>
-// Компонент Commissions секции
+import { computed } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 </script>
 
 <style scoped>
@@ -78,7 +48,6 @@
   padding: 80px 80px;
 }
 
-/* Секция с картинкой слева и текстом справа */
 .benefits-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -93,7 +62,6 @@
   align-items: center;
 }
 
-/* Добавляем адаптивность для главной картинки */
 .spade-image {
   width: 100%;
   height: auto;
@@ -122,7 +90,6 @@
 
 .benefit-icon {
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +117,6 @@
   margin: 0;
 }
 
-/* Respons для 1024px */
 @media (max-width: 1024px) {
   .benefits-wrapper {
     grid-template-columns: 1fr;
@@ -171,13 +137,11 @@
     gap: 40px;
   }
 
-  /* benefits-list снова в 1 столбец */
   .benefits-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 56px 48px;
   }
 
-  /* Дополнительно ограничиваем картинку на планшетах */
   .benefits-image {
     max-width: 500px;
     margin: 0 auto;
@@ -198,7 +162,6 @@
     font-size: 13px;
   }
 
-  /* На мобильных делаем картинку еще меньше */
   .benefits-image {
     max-width: 100%;
   }

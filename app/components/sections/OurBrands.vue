@@ -1,32 +1,26 @@
 <template>
-  <section id="brands" class="our-brands">
+  <section id="our-brands" class="our-brands">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our brands</h2>
+      <div class="section-header" v-if="data">
+        <h2 class="section-title">{{ data.brands_title }}</h2>
+        <p class="section-subtitle" v-if="data.brands_subtitle">
+          {{ data.brands_subtitle }}
+        </p>
       </div>
 
-      <div class="brands-grid">
-        <!-- Left Card - Spin Casino -->
+      <div class="brands-grid" v-if="data">
         <div class="brand-card brand-card-image">
-          <img src="../../assets/images/Cover.png" alt="Spin Casino" class="card-image" />
+          <img :src="data.brands_img" alt="Spin Casino" class="card-image" />
         </div>
 
-        <!-- Right Card - Spin Empire -->
         <div class="brand-card brand-card-content">
           <div class="brand-logo">
-            <img src="../../assets/images/seLogo.png" alt="Spin Empire" />
+            <img :src="data.brands_logo" alt="Spin Empire" />
           </div>
 
-          <p class="brand-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </p>
+          <p class="brand-description">{{ data.brands_text }}</p>
 
-          <button class="visit-button">
+          <button class="visit-button" @click="visitBrand">
             Visit
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
@@ -45,7 +39,15 @@
 </template>
 
 <script setup>
-// Здесь можно добавить логику, если понадобится
+import { computed } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
+
+const visitBrand = () => {
+  // Здесь можно добавить ссылку на бренд из API, если она будет
+  console.log('Visit brand');
+};
 </script>
 
 <style scoped>

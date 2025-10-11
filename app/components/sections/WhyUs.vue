@@ -4,7 +4,6 @@
       <h2 class="section-title">Why us</h2>
 
       <div class="content-wrapper">
-        <!-- Декоративные элементы - 3 сердца -->
         <div class="hearts-container">
           <div class="heart heart-1">
             <img src="../../assets/images/heart1.png" alt="heart" />
@@ -17,53 +16,16 @@
           </div>
         </div>
 
-        <!-- Карточки преимуществ -->
-        <div class="advantages-grid">
-          <div class="advantage-card">
+        <div class="advantages-grid" v-if="data && data.why">
+          <div class="advantage-card" v-for="(item, index) in data.why" :key="index">
             <div class="card-icon">
-              <img src="../../assets/images/payment.png" alt="payment" />
+              <img :src="item.icon" :alt="item.title" />
             </div>
-            <h4>Payment methods</h4>
-            <p>
-              Various payment methods for withdrawals in fiat or crypto currencies. Bank transfer,
-              Neteller, Skrill, CoinsPaid.
-            </p>
-          </div>
-
-          <div class="advantage-card">
-            <div class="card-icon">
-              <img src="../../assets/images/Icon1.png" alt="payment" />
-            </div>
-            <h4>Personal manager</h4>
-            <p>
-              Every partner is assigned a personal manager to help with anything that might come up.
-            </p>
-          </div>
-
-          <div class="advantage-card">
-            <div class="card-icon">
-              <img src="../../assets/images/retencion.png" alt="retencion" />
-            </div>
-            <h4>Player retention</h4>
-            <p>
-              High conversion rates. Loyalty system & multiple bonus programs. Support and VIP
-              service.
-            </p>
-          </div>
-
-          <div class="advantage-card">
-            <div class="card-icon">
-              <img src="../../assets/images/parther.png" alt="parther" />
-            </div>
-            <h4>True partnership</h4>
-            <p>
-              No negative carry over, no hidden fees, no withdrawal commissions, no bundling between
-              brands.
-            </p>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.sub_title }}</p>
           </div>
         </div>
 
-        <!-- Кнопки действий -->
         <div class="action-buttons">
           <button class="btn-primary">
             <span>Become a partner</span>
@@ -78,22 +40,23 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'WhyUsSection',
-  mounted() {
-    this.animateHearts();
-  },
-  methods: {
-    animateHearts() {
-      const hearts = document.querySelectorAll('.heart');
-      hearts.forEach((heart, index) => {
-        setTimeout(() => {
-          heart.style.animation = `float 3s ease-in-out ${index * 0.5}s infinite`;
-        }, index * 200);
-      });
-    },
-  },
+<script setup>
+import { computed, onMounted } from 'vue';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
+
+onMounted(() => {
+  animateHearts();
+});
+
+const animateHearts = () => {
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach((heart, index) => {
+    setTimeout(() => {
+      heart.style.animation = `float 3s ease-in-out ${index * 0.5}s infinite`;
+    }, index * 200);
+  });
 };
 </script>
 
@@ -125,7 +88,6 @@ export default {
   position: relative;
 }
 
-/* Сердца - декоративные элементы как фиксированный фон */
 .hearts-container {
   position: absolute;
   width: 100%;
@@ -148,7 +110,6 @@ export default {
   object-fit: contain;
 }
 
-/* Desktop стили - фиксированные позиции */
 .heart-1 {
   width: 377.25px;
   height: 377.25px;
@@ -173,7 +134,6 @@ export default {
   transform: rotate(351deg);
 }
 
-/* Анимация плавания - только вертикальное движение */
 @keyframes float {
   0%,
   100% {
@@ -184,7 +144,6 @@ export default {
   }
 }
 
-/* Сетка преимуществ */
 .advantages-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -234,7 +193,6 @@ export default {
   color: #e6e5ffa3;
 }
 
-/* Кнопки действий */
 .action-buttons {
   display: flex;
   justify-content: center;
@@ -257,6 +215,8 @@ export default {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  background: #cd9f55;
+  border: 1px solid #cd9f55;
 }
 
 .btn-primary span {
@@ -267,18 +227,6 @@ export default {
   color: #ffffff;
 }
 
-.btn-primary {
-  background: #cd9f55;
-  border: 1px solid #cd9f55;
-}
-.btn-secondary span {
-  font-family: Font, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
-  color: #f2f2ff;
-}
-
 .btn-secondary {
   display: flex;
   align-items: center;
@@ -287,82 +235,24 @@ export default {
   gap: 8px;
 }
 
-@media (max-width: 4000px) {
-  .heart-1 {
-    width: 377.25px;
-    height: 377.25px;
-    top: -45%;
-    right: 0%;
-    transform: rotate(350deg);
-  }
-}
-@media (max-width: 1920px) {
-  .heart-1 {
-    width: 377.25px;
-    height: 377.25px;
-    top: -45%;
-    right: 0%;
-    transform: rotate(350deg);
-  }
+.btn-secondary span {
+  font-family: Font, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #f2f2ff;
 }
 
-@media (max-width: 1440px) {
-  .heart-1 {
-    width: 377.25px;
-    height: 377.25px;
-    top: -45%;
-    right: 0%;
-    transform: rotate(350deg);
-  }
-}
-
-/* Большие планшеты и маленькие десктопы (до 1200px) */
 @media (max-width: 1200px) {
   .advantages-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .heart-1 {
-    width: 377.25px;
-    height: 377.25px;
     top: -34%;
-    right: 0%;
-    transform: rotate(350deg);
-  }
-
-  .heart-2 {
-    width: 771px;
-    height: 771px;
-    top: -400px;
-    left: -250px;
-    transform: rotate(6deg);
-  }
-
-  .heart-3 {
-    width: 394px;
-    height: 379.77px;
-    bottom: -2%;
-    right: -4%;
-    transform: rotate(351deg);
   }
 }
 
-/* Планшеты (до 992px) */
-@media (max-width: 992px) {
-  .section-title {
-    font-size: 42px;
-  }
-
-  .advantages-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .advantage-card {
-    padding: 35px 25px;
-  }
-}
-
-/* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
   .container {
     padding: 80px 16px;
@@ -386,63 +276,28 @@ export default {
   }
 
   .heart-2 {
-    width: 771px;
-    height: 771px;
     top: -29%;
     left: -37%;
-    transform: rotate(6deg);
   }
 
   .heart-1 {
-    width: 377.25px;
-    height: 377.25px;
     top: 22%;
     right: -29%;
-    transform: rotate(350deg);
   }
 
   .heart-3 {
-    width: 394px;
-    height: 379.77px;
     bottom: 1%;
     right: -26%;
-    transform: rotate(351deg);
   }
 }
 
-/* Маленькие мобильные устройства (до 480px) */
 @media (max-width: 480px) {
   .advantages-grid {
     grid-template-columns: 1fr;
   }
+
   .heart-2 {
-    width: 771px;
-    height: 771px;
-    top: -29%;
     left: -58%;
-    transform: rotate(6deg);
-  }
-
-  .advantage-card {
-    padding: 30px 20px;
-  }
-
-  .card-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* Очень маленькие экраны (до 360px) */
-@media (max-width: 360px) {
-  .advantage-card {
-    padding: 25px 15px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    padding: 14px 30px;
-    font-size: 14px;
   }
 }
 </style>
