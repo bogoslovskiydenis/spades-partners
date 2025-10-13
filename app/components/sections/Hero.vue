@@ -246,7 +246,7 @@ const handleBecomePartner = () => {
 
 .hero-button {
   background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
-  color: #1a1a1a;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   padding: 18px 42px;

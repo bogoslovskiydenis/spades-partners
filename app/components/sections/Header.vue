@@ -15,10 +15,26 @@
         >
           {{ item.title }}
         </a>
+
+        <!-- Contact us link in mobile menu -->
+        <a
+          v-if="data.text_button_contacts && data.link_button_contacts"
+          :href="data.link_button_contacts"
+          class="nav-link mobile-contact-link"
+          @click="scrollToSection(data.link_button_contacts)"
+        >
+          {{ data.text_button_contacts }}
+        </a>
       </nav>
 
       <div class="header-actions">
-        <button class="btn-login">Log in</button>
+        <div
+          v-if="data && data.text_button_contacts && data.link_button_contacts"
+          class="contact-button"
+          @click="scrollToSection(data.link_button_contacts)"
+        >
+          {{ data.text_button_contacts }}
+        </div>
 
         <button
           class="mobile-menu-toggle"
@@ -149,13 +165,18 @@ onUnmounted(() => {
   width: 100%;
 }
 
+/* Hide mobile contact link on desktop */
+.mobile-contact-link {
+  display: none;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.btn-login {
+.contact-button {
   background: transparent;
   color: #ffffff;
   font-size: 15px;
@@ -167,7 +188,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
 }
 
-.btn-login:hover {
+.contact-button:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
@@ -249,9 +270,18 @@ onUnmounted(() => {
     text-align: left;
   }
 
-  .btn-login {
-    padding: 8px 20px;
-    font-size: 14px;
+  /* Show mobile contact link in mobile menu */
+  .mobile-contact-link {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 0;
+    font-weight: 500;
+    color: #d4a574;
+  }
+
+  /* Hide desktop contact button on mobile */
+  .contact-button {
+    display: none;
   }
 
   .logo-image {
@@ -270,10 +300,6 @@ onUnmounted(() => {
 
   .logo-image {
     height: 24px;
-  }
-
-  .btn-login {
-    display: none;
   }
 
   .header-nav {

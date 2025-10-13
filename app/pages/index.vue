@@ -5,10 +5,11 @@
     <main>
       <Header />
       <Hero />
-      <About />
-      <Comissions />
+      <Company />
       <WhyUs />
-      <OurBrands />
+      <Comissions />
+      <About />
+
       <Testimonials />
       <Contact />
       <Footer />
@@ -19,11 +20,12 @@
 <script setup>
 import Hero from '../components/sections/Hero.vue';
 import Header from '../components/sections/Header.vue';
+import Company from '../components/sections/Company.vue';
 import About from '../components/sections/About.vue';
 import WhyUs from '../components/sections/WhyUs.vue';
+import Comissions from '../components/sections/Comissions.vue';
 import OurBrands from '../components/sections/OurBrands.vue';
 import Testimonials from '../components/sections/Testimonials.vue';
-import Comissions from '../components/sections/Comissions.vue';
 import Footer from '../components/sections/Footer.vue';
 import Contact from '../components/sections/Contact.vue';
 </script>

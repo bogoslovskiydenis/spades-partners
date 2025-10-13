@@ -1,28 +1,17 @@
 <template>
-  <section id="comissions" class="commissions">
+  <section id="commissions" class="commissions">
     <div class="commissions-container">
       <div class="commissions-header" v-if="data">
-        <h2 class="commissions-title">{{ data.partners_title || 'Commissions' }}</h2>
-        <p class="commissions-subtitle" v-if="data.partners_sub_title">
-          {{ data.partners_sub_title }}
-        </p>
+        <h2 class="commissions-title">{{ data.commissions_title || 'Commissions' }}</h2>
       </div>
 
-      <div class="benefits-wrapper">
-        <div class="benefits-image" v-if="data">
-          <img :src="data.benefit_img" alt="Spades 3D" class="spade-image" />
-        </div>
-
-        <div class="benefits-list" v-if="data && data.benefit_list">
-          <div class="benefit-item" v-for="(item, index) in data.benefit_list" :key="index">
-            <div class="benefit-header">
-              <div class="benefit-icon">
-                <img :src="item.icon" :alt="item.title" />
-              </div>
-              <h3 class="benefit-title">{{ item.title }}</h3>
-            </div>
-            <p class="benefit-description">{{ item.text }}</p>
+      <div class="commissions-grid" v-if="data && data.commissions">
+        <div class="commission-item" v-for="(item, index) in data.commissions" :key="index">
+          <div class="commission-image">
+            <img :src="item.icon" :alt="item.title" />
           </div>
+          <h3 class="commission-title">{{ item.title }}</h3>
+          <p class="commission-subtitle">{{ item.sub_title }}</p>
         </div>
       </div>
     </div>
@@ -40,134 +29,151 @@ const data = computed(() => pageData.value);
 .commissions {
   width: 100%;
   background: #010101;
+  padding: 80px 0;
 }
 
 .commissions-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 80px;
+  padding: 0 80px;
 }
 
-.benefits-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+.commissions-header {
+  text-align: center;
+  margin-bottom: 80px;
 }
 
-.benefits-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.spade-image {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-.benefits-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 56px;
-}
-
-.benefit-item {
-  max-width: 413px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.benefit-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.benefit-icon {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.benefit-icon img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.benefit-title {
-  font-size: 18px;
-  font-weight: 500;
+.commissions-title {
+  font-size: 48px;
+  font-weight: 600;
   color: #ffffff;
   margin: 0;
-  line-height: 1.4;
 }
 
-.benefit-description {
-  font-size: 14px;
+.commissions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  align-items: start;
+}
+
+.commission-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.commission-image {
+  width: 100%;
+  max-width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.commission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.commission-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.commission-subtitle {
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
 }
 
+/* Tablet */
 @media (max-width: 1024px) {
-  .benefits-wrapper {
+  .commissions-title {
+    font-size: 42px;
+  }
+
+  .commissions-grid {
+    gap: 50px;
+  }
+
+  .commission-image {
+    max-width: 240px;
+    height: 240px;
+  }
+
+  .commission-title {
+    font-size: 28px;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .commissions-container {
+    padding: 0 16px;
+  }
+
+  .commissions-header {
+    margin-bottom: 60px;
+  }
+
+  .commissions-title {
+    font-size: 36px;
+  }
+
+  .commissions-grid {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  .benefits-list {
-    grid-template-columns: repeat(2, 1fr);
+  .commission-image {
+    max-width: 200px;
+    height: 200px;
+  }
+
+  .commission-title {
+    font-size: 24px;
+  }
+
+  .commission-subtitle {
+    font-size: 15px;
   }
 }
 
-@media (max-width: 768px) {
-  .commissions-container {
-    padding: 80px 16px;
-  }
-
-  .benefits-wrapper {
-    gap: 40px;
-  }
-
-  .benefits-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 56px 48px;
-  }
-
-  .benefits-image {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-}
-
+/* Mobile Small */
 @media (max-width: 480px) {
-  .benefits-list {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .commissions {
+    padding: 60px 0;
   }
 
-  .benefit-title {
-    font-size: 16px;
+  .commissions-title {
+    font-size: 28px;
   }
 
-  .benefit-description {
-    font-size: 13px;
+  .commissions-grid {
+    gap: 48px;
   }
 
-  .benefits-image {
-    max-width: 100%;
+  .commission-image {
+    max-width: 180px;
+    height: 180px;
   }
 
-  .benefit-item {
-    max-width: 100%;
+  .commission-title {
+    font-size: 20px;
+  }
+
+  .commission-subtitle {
+    font-size: 14px;
   }
 }
 </style>
