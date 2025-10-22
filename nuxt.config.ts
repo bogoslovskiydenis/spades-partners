@@ -5,6 +5,7 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/',
+    buildAssetsDir: '/assets/',
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
@@ -27,11 +28,15 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
     prerender: {
       crawlLinks: true,
+      routes: ['/', '/policy', '/terms'],
     },
   },
 
   routeRules: {
-    '/**': { ssr: false }, // рендер только на клиенте, без Node
+    '/policy': { prerender: true },
+    '/terms': { prerender: true },
+    '/': { prerender: true },
+    '/**': { ssr: false },
   },
 
   experimental: {

@@ -1,18 +1,18 @@
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-section" v-if="data">
+      <div class="footer-section">
         <div class="logo">
-          <img :src="data.logo" alt="Spades Partners" />
+          <img :src="data?.logo || '/logo-spade.png'" alt="Spades Partners" />
         </div>
-        <p class="description">{{ data.footer_text }}</p>
-        <p class="copyright">{{ data.footer_sub_text }}</p>
+        <p class="description" v-if="data">{{ data.footer_text }}</p>
+        <p class="copyright" v-if="data">{{ data.footer_sub_text }}</p>
       </div>
 
-      <div class="footer-section contact-section" v-if="data">
-        <a :href="`mailto:${data.email}`" class="email">{{ data.email }}</a>
+      <div class="footer-section contact-section">
+        <a v-if="data" :href="`mailto:${data.email}`" class="email">{{ data.email }}</a>
 
-        <div class="social-links" v-if="data.social">
+        <div class="social-links" v-if="data && data.social">
           <a
             v-for="(item, index) in data.social"
             :key="index"
@@ -24,7 +24,7 @@
           </a>
         </div>
 
-        <div class="footer-links" v-if="data.footer_menu">
+        <div class="footer-links">
           <div class="footer-links">
             <NuxtLink to="/policy">Privacy Policy</NuxtLink>
             <NuxtLink to="/terms">Terms and conditions</NuxtLink>
@@ -39,7 +39,14 @@
 import { computed } from 'vue';
 
 const { pageData } = usePageData();
-const data = computed(() => pageData.value);
+const data = computed(() => {
+  try {
+    return pageData.value;
+  } catch (error) {
+    console.warn('Footer: Error getting page data:', error);
+    return null;
+  }
+});
 </script>
 
 <style scoped>

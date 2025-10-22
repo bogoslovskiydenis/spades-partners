@@ -10,10 +10,15 @@ const { pageData, fetchPageData } = usePageData();
 
 // SSR-загрузка данных
 await useAsyncData('pageData', async () => {
-  if (!pageData.value) {
-    await fetchPageData();
+  try {
+    if (!pageData.value) {
+      await fetchPageData();
+    }
+    return pageData.value;
+  } catch (error) {
+    console.warn('App: Error loading page data:', error);
+    return null;
   }
-  return pageData.value;
 });
 
 // Устанавливаем SEO-мета-теги из данных

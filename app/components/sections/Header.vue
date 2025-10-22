@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="header-container">
-      <div class="header-logo" v-if="data" @click="goToHome">
-        <img :src="data.logo" alt="Spades Partners" class="logo-image" />
+      <div class="header-logo" @click="goToHome">
+        <img :src="data?.logo || '/logo-spade.png'" alt="Spades Partners" class="logo-image" />
       </div>
 
       <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }" v-if="data && data.menu">
@@ -35,8 +35,18 @@
         >
           {{ data.text_button_contacts }}
         </div>
+        
+        <!-- Fallback button when no data -->
+        <div
+          v-else-if="!data"
+          class="contact-button"
+          @click="goToHome"
+        >
+          Back to Home
+        </div>
 
         <button
+          v-if="data && data.menu"
           class="mobile-menu-toggle"
           @click="toggleMobileMenu"
           :class="{ 'is-open': isMobileMenuOpen }"
@@ -54,7 +64,14 @@
 import { ref, computed, onUnmounted } from 'vue';
 
 const { pageData } = usePageData();
-const data = computed(() => pageData.value);
+const data = computed(() => {
+  try {
+    return pageData.value;
+  } catch (error) {
+    console.warn('Header: Error getting page data:', error);
+    return null;
+  }
+});
 
 const isMobileMenuOpen = ref(false);
 
