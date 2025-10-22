@@ -12,7 +12,7 @@
 
     <div class="contact-container">
       <div class="contact-header" v-if="data">
-        <h1 class="contact-title">{{ data.contact_title || 'Contact us' }}</h1>
+        <h2 class="contact-title">{{ data.contact_title || 'Contact us' }}</h2>
         <p class="contact-subtitle" v-if="data.contact_subtitle">
           {{ data.contact_subtitle }}
         </p>

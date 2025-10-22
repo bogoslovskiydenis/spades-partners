@@ -3,7 +3,7 @@
     <div class="footer-container">
       <div class="footer-section">
         <div class="logo">
-          <img :src="data?.logo || '/logo-spade.png'" alt="Spades Partners" />
+          <img src="../../assets/SpadesPartnersLogo.svg" alt="Spades Partners" />
         </div>
         <p class="description" v-if="data">{{ data.footer_text }}</p>
         <p class="copyright" v-if="data">{{ data.footer_sub_text }}</p>

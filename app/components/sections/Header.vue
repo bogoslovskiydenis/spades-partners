@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-container">
       <div class="header-logo" @click="goToHome">
-        <img :src="data?.logo || '/logo-spade.png'" alt="Spades Partners" class="logo-image" />
+        <img src="../../assets/SpadesPartnersLogo.svg" alt="Spades Partners" class="logo-image" />
       </div>
 
       <nav class="header-nav" :class="{ 'nav-open': isMobileMenuOpen }" v-if="data && data.menu">
@@ -35,15 +35,9 @@
         >
           {{ data.text_button_contacts }}
         </div>
-        
+
         <!-- Fallback button when no data -->
-        <div
-          v-else-if="!data"
-          class="contact-button"
-          @click="goToHome"
-        >
-          Back to Home
-        </div>
+        <div v-else-if="!data" class="contact-button" @click="goToHome">Back to Home</div>
 
         <button
           v-if="data && data.menu"
@@ -110,7 +104,7 @@ const scrollToSection = permalink => {
 
 const goToHome = () => {
   closeMenu();
-  
+
   // Check if we're on the home page
   if (window.location.pathname === '/' || window.location.pathname === '') {
     // Already on home page, scroll to hero section

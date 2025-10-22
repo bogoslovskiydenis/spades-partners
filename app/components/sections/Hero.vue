@@ -182,6 +182,7 @@ const handleBecomePartner = () => {
   align-items: center;
   text-align: center;
   width: 100%;
+  gap: 16px;
 }
 
 .hero-title {
@@ -189,7 +190,6 @@ const handleBecomePartner = () => {
   font-weight: 500;
   line-height: 1.2;
   text-align: center;
-  margin-bottom: 24px;
   white-space: nowrap;
 }
 
@@ -353,7 +353,6 @@ const handleBecomePartner = () => {
 
   .hero-title {
     font-size: 38px;
-    margin-bottom: 18px;
     white-space: normal;
   }
 
@@ -397,7 +396,6 @@ const handleBecomePartner = () => {
 
   .hero-title {
     font-size: 26px;
-    margin-bottom: 12px;
     line-height: 1.25;
   }
 

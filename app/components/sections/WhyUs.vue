@@ -27,13 +27,18 @@
         </div>
 
         <div class="action-buttons">
-          <button class="btn-primary">
-            <span>Become a partner</span>
+          <button class="hero-button" @click="handleBecomePartner">
+            Become a partner
+            <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </button>
-          <div class="btn-secondary">
-            <img src="../../assets/images/Doc.png" alt="Doc" />
-            <span>Terms and conditions</span>
-          </div>
         </div>
       </div>
     </div>
@@ -57,6 +62,13 @@ const animateHearts = () => {
       heart.style.animation = `float 3s ease-in-out ${index * 0.5}s infinite`;
     }, index * 200);
   });
+};
+
+const handleBecomePartner = () => {
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  }
 };
 </script>
 
@@ -202,45 +214,40 @@ const animateHearts = () => {
   align-items: center;
 }
 
-.btn-primary {
-  max-width: 215px;
-  height: 56px;
-  opacity: 1;
-  padding: 16px 24px;
-  gap: 8px;
-  border-radius: 20px;
-  border-width: 1px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: #cd9f55;
-  border: 1px solid #cd9f55;
-}
-
-.btn-primary span {
-  font-family: Font, sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 100%;
+.hero-button {
+  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
   color: #ffffff;
-}
-
-.btn-secondary {
-  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 18px 42px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  gap: 8px;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 35px rgba(212, 165, 116, 0.35);
+  letter-spacing: 0.01em;
 }
 
-.btn-secondary span {
-  font-family: Font, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 100%;
-  color: #f2f2ff;
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(212, 165, 116, 0.45);
+  background: linear-gradient(135deg, #e0b180 0%, #c89f6b 100%);
+}
+
+.hero-button:active {
+  transform: translateY(-1px);
+}
+
+.button-arrow {
+  transition: transform 0.3s ease;
+}
+
+.hero-button:hover .button-arrow {
+  transform: translateX(4px);
 }
 
 @media (max-width: 1200px) {
@@ -289,9 +296,18 @@ const animateHearts = () => {
     bottom: 1%;
     right: -26%;
   }
+  .hero-button {
+    padding: 15px 34px;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
+  .hero-button {
+    padding: 13px 30px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
   .advantages-grid {
     grid-template-columns: 1fr;
   }

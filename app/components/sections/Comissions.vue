@@ -89,7 +89,7 @@ const data = computed(() => pageData.value);
 }
 
 .commission-subtitle {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: 400;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.6);
@@ -143,10 +143,6 @@ const data = computed(() => pageData.value);
   .commission-title {
     font-size: 24px;
   }
-
-  .commission-subtitle {
-    font-size: 15px;
-  }
 }
 
 /* Mobile Small */
@@ -173,7 +169,7 @@ const data = computed(() => pageData.value);
   }
 
   .commission-subtitle {
-    font-size: 14px;
+    font-size: 20px;
   }
 }
 </style>
