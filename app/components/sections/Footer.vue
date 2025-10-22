@@ -25,9 +25,10 @@
         </div>
 
         <div class="footer-links" v-if="data.footer_menu">
-          <NuxtLink v-for="(item, index) in data.footer_menu" :key="index" :to="item.permalink">
-            {{ item.title }}
-          </NuxtLink>
+          <div class="footer-links">
+            <NuxtLink to="/policy">Privacy Policy</NuxtLink>
+            <NuxtLink to="/terms">Terms and conditions</NuxtLink>
+          </div>
         </div>
       </div>
     </div>

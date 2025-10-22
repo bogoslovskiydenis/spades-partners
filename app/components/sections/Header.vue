@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header-container">
-      <div class="header-logo" v-if="data">
+      <div class="header-logo" v-if="data" @click="goToHome">
         <img :src="data.logo" alt="Spades Partners" class="logo-image" />
       </div>
 
@@ -91,6 +91,25 @@ const scrollToSection = permalink => {
   }
 };
 
+const goToHome = () => {
+  closeMenu();
+  
+  // Check if we're on the home page
+  if (window.location.pathname === '/' || window.location.pathname === '') {
+    // Already on home page, scroll to hero section
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  } else {
+    // Navigate to home page
+    window.location.href = '/';
+  }
+};
+
 onUnmounted(() => {
   document.body.style.overflow = '';
 });
@@ -120,6 +139,12 @@ onUnmounted(() => {
 
 .header-logo {
   flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.header-logo:hover {
+  opacity: 0.8;
 }
 
 .logo-image {
