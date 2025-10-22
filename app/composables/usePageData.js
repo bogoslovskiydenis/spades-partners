@@ -10,9 +10,7 @@ export const usePageData = () => {
     error.value = null;
 
     try {
-      const response = await $fetch(
-        'https://goldengenie.lenddev.com.ua/wp-content/themes/api/app/pages/'
-      );
+      const response = await $fetch('https://spadespartners.fun/wp-content/themes/api/app/pages/');
       pageData.value = response.body;
       return response.body;
     } catch (err) {

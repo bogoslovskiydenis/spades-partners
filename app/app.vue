@@ -5,49 +5,88 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+// Подключаем твой комбозибл
+const { pageData, fetchPageData } = usePageData();
 
-const { fetchPageData, pageData } = usePageData();
-
-// Загружаем данные при инициализации приложения
-onMounted(async () => {
+// SSR-загрузка данных
+await useAsyncData('pageData', async () => {
   if (!pageData.value) {
     await fetchPageData();
   }
+  return pageData.value;
 });
 
-// SEO мета-теги (можно переопределить на страницах)
-useHead({
+// Устанавливаем SEO-мета-теги из данных
+useHead(() => ({
   htmlAttrs: {
     lang: 'en',
   },
-  title: 'Spades Partners - Quality is our specialty',
+  title: pageData.value?.meta_title || 'Spades Partners',
   meta: [
     {
       name: 'description',
-      content:
-        'Join Spades Partners program today and work with one of the best affiliates in the online casino market.',
+      content: pageData.value?.meta_description,
     },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { property: 'og:title', content: 'Spades Partners' },
-    { property: 'og:description', content: 'Join Spades Partners program today' },
-    { property: 'og:type', content: 'website' },
-  ],
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
     {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+      name: 'keywords',
+      content: pageData.value?.meta_keywords,
+    },
+    {
+      property: 'og:title',
+      content: pageData.value?.meta_title,
+    },
+    {
+      property: 'og:description',
+      content: pageData.value?.meta_description,
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:image',
+      content: pageData.value?.logo || '',
+    },
+    // Twitter Card
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    },
+    {
+      name: 'twitter:title',
+      content: pageData.value?.meta_title,
+    },
+    {
+      name: 'twitter:description',
+      content: pageData.value?.meta_description,
     },
   ],
-});
+}));
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: #010101;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
@@ -55,5 +94,24 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #010101;
+}
+
+/* Убираем стили для ссылок */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Базовые стили для изображений */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Убираем стили кнопок */
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 </style>
