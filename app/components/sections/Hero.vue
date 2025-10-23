@@ -244,13 +244,13 @@ const handleBecomePartner = () => {
 }
 
 .hero-button {
-  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+  position: relative;
+  background: #cd9f55;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   padding: 18px 42px;
-  border: 1px solid;
-  border-image-source: linear-gradient(180deg, #FFD38C 0%, #CD9F55 100%);
+  border: none;
   border-radius: 50px;
   cursor: pointer;
   display: inline-flex;
@@ -258,8 +258,11 @@ const handleBecomePartner = () => {
   justify-content: center;
   gap: 10px;
   transition: all 0.3s ease;
-  box-shadow: 0 12px 35px rgba(212, 165, 116, 0.35);
+  box-shadow: 
+    0 0 0 1px #ffd38c,
+    0 12px 35px rgba(212, 165, 116, 0.35);
   letter-spacing: 0.01em;
+  backdrop-filter: blur(53.20000076293945px);
 }
 
 .hero-button:hover {
@@ -346,8 +349,6 @@ const handleBecomePartner = () => {
   .hero-container {
     padding: 80px 24px;
   }
-
-  
 
   .hero-title {
     font-size: 38px;
