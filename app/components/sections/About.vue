@@ -45,8 +45,6 @@ const data = computed(() => pageData.value);
 }
 
 .about-title {
-  font-size: 48px;
-  font-weight: 600;
   color: #ffffff;
   margin-bottom: 16px;
 }
@@ -98,9 +96,7 @@ const data = computed(() => pageData.value);
 }
 
 @media (max-width: 1024px) {
-  .about-title {
-    font-size: 42px;
-  }
+  
 }
 
 @media (max-width: 900px) {
@@ -121,9 +117,6 @@ const data = computed(() => pageData.value);
     padding: 0 16px;
   }
 
-  .about-title {
-    font-size: 36px;
-  }
 
   .about-features {
     grid-template-columns: 1fr;

@@ -209,8 +209,6 @@ const handleSubmit = async () => {
 }
 
 .contact-title {
-  font-size: 56px;
-  font-weight: 600;
   color: #fff;
   text-align: center;
   margin-bottom: 16px;
@@ -397,7 +395,6 @@ const handleSubmit = async () => {
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .contact-title {
-    font-size: 40px;
     margin-bottom: 12px;
   }
 
@@ -447,9 +444,6 @@ const handleSubmit = async () => {
 }
 
 @media (max-width: 480px) {
-  .contact-title {
-    font-size: 32px;
-  }
 
   .contact-subtitle {
     font-size: 13px;

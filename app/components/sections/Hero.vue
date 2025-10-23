@@ -185,8 +185,6 @@ const handleBecomePartner = () => {
 }
 
 .hero-title {
-  font-size: 64px;
-  font-weight: 500;
   line-height: 1.2;
   text-align: center;
   white-space: nowrap;
@@ -309,6 +307,7 @@ const handleBecomePartner = () => {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0px 4px 28.7px 0px rgba(255, 255, 255, 0.1);
 }
 
 .step-icon img {
@@ -351,8 +350,21 @@ const handleBecomePartner = () => {
   }
 
   .hero-title {
-    font-size: 38px;
     white-space: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-quality {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .title-specialty {
+    display: block;
+    text-align: center;
   }
 
   .hero-description {
@@ -394,8 +406,21 @@ const handleBecomePartner = () => {
   }
 
   .hero-title {
-    font-size: 26px;
     line-height: 1.25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-quality {
+    display: block;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .title-specialty {
+    display: block;
+    text-align: center;
   }
 
   .hero-description {

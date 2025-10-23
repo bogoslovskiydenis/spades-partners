@@ -54,8 +54,6 @@ const data = computed(() => pageData.value);
 }
 
 .company-title {
-  font-size: 48px;
-  font-weight: 600;
   color: #ffffff;
   margin-bottom: 16px;
 }
@@ -138,9 +136,6 @@ const data = computed(() => pageData.value);
 }
 
 @media (max-width: 1024px) {
-  .company-title {
-    font-size: 42px;
-  }
 
   .benefits-wrapper {
     grid-template-columns: 1fr;
@@ -157,9 +152,6 @@ const data = computed(() => pageData.value);
     padding: 80px 16px;
   }
 
-  .company-title {
-    font-size: 36px;
-  }
 
   .benefits-wrapper {
     gap: 40px;

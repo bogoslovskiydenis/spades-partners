@@ -46,8 +46,6 @@ const data = computed(() => pageData.value);
 }
 
 .commissions-title {
-  font-size: 48px;
-  font-weight: 600;
   color: #ffffff;
   margin: 0;
 }
@@ -100,8 +98,6 @@ const data = computed(() => pageData.value);
 }
 
 .commission-title {
-  font-size: 32px;
-  font-weight: 600;
   color: #ffffff;
   margin: 0;
   line-height: 1.2;
@@ -146,9 +142,6 @@ const data = computed(() => pageData.value);
     margin-bottom: 60px;
   }
 
-  .commissions-title {
-    font-size: 36px;
-  }
 
   .commissions-grid {
     grid-template-columns: 1fr;
@@ -174,9 +167,6 @@ const data = computed(() => pageData.value);
     padding: 60px 0;
   }
 
-  .commissions-title {
-    font-size: 28px;
-  }
 
   .commissions-grid {
     gap: 48px;

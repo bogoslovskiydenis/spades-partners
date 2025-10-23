@@ -29,9 +29,9 @@
 
       <div class="header-actions">
         <!-- Login and Sign up buttons -->
-        <div class="auth-buttons" v-if="data && data.ref_1 && data.ref_2">
-          <a :href="getFullUrl(data.ref_1)" class="auth-button login-button">Log in</a>
-          <a :href="getFullUrl(data.ref_2)" class="auth-button signup-button">Sign up</a>
+        <div class="auth-buttons" v-if="hasAuthLinks">
+          <a :href="loginUrl" class="auth-button login-button">Log in</a>
+          <a :href="signupUrl" class="auth-button signup-button">Sign up</a>
         </div>
 
        
@@ -62,6 +62,18 @@ const data = computed(() => {
     console.warn('Header: Error getting page data:', error);
     return null;
   }
+});
+
+const hasAuthLinks = computed(() => {
+  return data.value && data.value.ref_1 && data.value.ref_2;
+});
+
+const loginUrl = computed(() => {
+  return getFullUrl(data.value?.ref_1);
+});
+
+const signupUrl = computed(() => {
+  return getFullUrl(data.value?.ref_2);
 });
 
 const isMobileMenuOpen = ref(false);
@@ -119,15 +131,20 @@ const goToHome = () => {
 };
 
 const getFullUrl = (url) => {
-  if (!url) return '#';
-  
-  // If URL already has protocol, return as is
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url;
+  try {
+    if (!url || typeof url !== 'string') return '#';
+    
+    // If URL already has protocol, return as is
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      return url;
+    }
+    
+    // Add https:// protocol if missing
+    return `https://${url}`;
+  } catch (error) {
+    console.warn('Error processing URL:', error);
+    return '#';
   }
-  
-  // Add https:// protocol if missing
-  return `https://${url}`;
 };
 
 onUnmounted(() => {

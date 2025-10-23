@@ -69,9 +69,6 @@ const visitBrand = () => {
 }
 
 .section-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 48px;
-  font-weight: 500;
   margin: 0 0 10px 0;
   color: #f2f2ff;
 }
@@ -167,9 +164,6 @@ const visitBrand = () => {
 }
 
 @media (max-width: 640px) {
-  .section-title {
-    font-size: 32px;
-  }
 
   .brand-card-content {
     padding: 30px 20px;

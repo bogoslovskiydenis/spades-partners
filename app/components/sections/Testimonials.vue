@@ -220,8 +220,6 @@ onUnmounted(() => {
 }
 
 .section-title {
-  font-size: 48px;
-  font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.02em;
   margin: 0 0 12px 0;

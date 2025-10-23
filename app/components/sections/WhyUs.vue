@@ -6,7 +6,7 @@
       <div class="content-wrapper">
         <div class="hearts-container">
           <div class="heart heart-1">
-            <img src="../../assets/images/heart1.png" alt="heart" />
+            <img src="../../assets/images/Hearth.webp" alt="heart" />
           </div>
           <div class="heart heart-2">
             <img src="../../assets/images/heart2.png" alt="heart" />
@@ -89,8 +89,6 @@ const handleBecomePartner = () => {
 }
 
 .section-title {
-  font-size: 48px;
-  font-weight: 600;
   text-align: center;
   color: #ffffff;
   margin-bottom: 80px;
@@ -125,7 +123,7 @@ const handleBecomePartner = () => {
 .heart-1 {
   width: 377.25px;
   height: 377.25px;
-  top: -78%;
+  top: -50%;
   right: 0%;
   transform: rotate(350deg);
 }
@@ -174,7 +172,6 @@ const handleBecomePartner = () => {
   max-width: 305px;
   width: 100%;
   opacity: 1;
-  gap: 24px;
   border-radius: 24px;
   backdrop-filter: blur(44px);
   background: #b7c8ff0a;
@@ -185,6 +182,7 @@ const handleBecomePartner = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 4px 28.7px 0px rgba(255, 255, 255, 0.1);
 }
 
 .card-icon img {
@@ -195,6 +193,7 @@ const handleBecomePartner = () => {
   font-weight: 600;
   text-align: center;
   color: #f2f2ff;
+  margin: 24px 0 8px 0;
 }
 
 .advantage-card p {
@@ -229,7 +228,7 @@ const handleBecomePartner = () => {
   justify-content: center;
   gap: 10px;
   transition: all 0.3s ease;
-  box-shadow: 
+  box-shadow:
     0 0 0 1px #ffd38c,
     0 12px 35px rgba(212, 165, 116, 0.35);
   letter-spacing: 0.01em;
@@ -260,7 +259,7 @@ const handleBecomePartner = () => {
   }
 
   .heart-1 {
-    top: -34%;
+    top: -20%;
   }
 }
 
@@ -297,7 +296,7 @@ const handleBecomePartner = () => {
   }
 
   .heart-3 {
-    bottom: 1%;
+    bottom: -8%;
     right: -26%;
   }
   .hero-button {
