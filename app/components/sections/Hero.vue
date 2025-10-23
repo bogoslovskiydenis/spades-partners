@@ -170,7 +170,6 @@ const handleBecomePartner = () => {
 
 .hero-content {
   width: 100%;
-  min-height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -250,7 +249,8 @@ const handleBecomePartner = () => {
   font-size: 16px;
   font-weight: 600;
   padding: 18px 42px;
-  border: none;
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, #FFD38C 0%, #CD9F55 100%);
   border-radius: 50px;
   cursor: pointer;
   display: inline-flex;
@@ -347,9 +347,7 @@ const handleBecomePartner = () => {
     padding: 80px 24px;
   }
 
-  .hero-content {
-    min-height: calc(100svh - 160px);
-  }
+  
 
   .hero-title {
     font-size: 38px;

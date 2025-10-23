@@ -16,11 +16,11 @@
           {{ item.title }}
         </a>
 
-        <!-- Contact us link in mobile menu -->
+        <!-- Contact us link in navigation -->
         <a
           v-if="data.text_button_contacts && data.link_button_contacts"
           :href="data.link_button_contacts"
-          class="nav-link mobile-contact-link"
+          class="nav-link"
           @click="scrollToSection(data.link_button_contacts)"
         >
           {{ data.text_button_contacts }}
@@ -28,16 +28,13 @@
       </nav>
 
       <div class="header-actions">
-        <div
-          v-if="data && data.text_button_contacts && data.link_button_contacts"
-          class="contact-button"
-          @click="scrollToSection(data.link_button_contacts)"
-        >
-          {{ data.text_button_contacts }}
+        <!-- Login and Sign up buttons -->
+        <div class="auth-buttons" v-if="data">
+          <a :href="data.ref_1" class="auth-button login-button">Log in</a>
+          <a :href="data.ref_2" class="auth-button signup-button">Sign up</a>
         </div>
 
-        <!-- Fallback button when no data -->
-        <div v-else-if="!data" class="contact-button" @click="goToHome">Back to Home</div>
+       
 
         <button
           v-if="data && data.menu"
@@ -201,10 +198,6 @@ onUnmounted(() => {
   width: 100%;
 }
 
-/* Hide mobile contact link on desktop */
-.mobile-contact-link {
-  display: none;
-}
 
 .header-actions {
   display: flex;
@@ -212,20 +205,27 @@ onUnmounted(() => {
   gap: 20px;
 }
 
-.contact-button {
-  background: transparent;
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.auth-button {
   color: #ffffff;
   font-size: 15px;
   font-weight: 500;
-  padding: 10px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
   border-radius: 50px;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  background: #B7C8FF14;
+  backdrop-filter: blur(44px);
 }
 
-.contact-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+.auth-button:hover {
+  background: rgba(183, 200, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
@@ -306,18 +306,15 @@ onUnmounted(() => {
     text-align: left;
   }
 
-  /* Show mobile contact link in mobile menu */
-  .mobile-contact-link {
-    display: block;
-    margin-top: 20px;
-    padding: 12px 0;
-    font-weight: 500;
-    color: #d4a574;
+  /* Keep auth buttons visible on mobile */
+  .auth-buttons {
+    display: flex;
+    gap: 8px;
   }
 
-  /* Hide desktop contact button on mobile */
-  .contact-button {
-    display: none;
+  .auth-button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
 
   .logo-image {

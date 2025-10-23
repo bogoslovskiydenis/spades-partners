@@ -10,8 +10,10 @@
           <div class="commission-image">
             <img :src="item.icon" :alt="item.title" />
           </div>
-          <h3 class="commission-title">{{ item.title }}</h3>
-          <p class="commission-subtitle">{{ item.sub_title }}</p>
+          <div class="commission-text">
+            <h3 class="commission-title">{{ item.title }}</h3>
+            <p class="commission-subtitle">{{ item.sub_title }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +64,23 @@ const data = computed(() => pageData.value);
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 32px;
+}
+
+/* Mobile layout - horizontal */
+@media (max-width: 768px) {
+  .commission-item {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+  }
+
+  .commission-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .commission-image {
@@ -72,6 +90,7 @@ const data = computed(() => pageData.value);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 24px;
 }
 
 .commission-image img {
@@ -86,6 +105,7 @@ const data = computed(() => pageData.value);
   color: #ffffff;
   margin: 0;
   line-height: 1.2;
+  padding-bottom: 8px;
 }
 
 .commission-subtitle {
@@ -136,12 +156,15 @@ const data = computed(() => pageData.value);
   }
 
   .commission-image {
-    max-width: 200px;
-    height: 200px;
+    max-width: 80px;
+    height: 80px;
+    padding-bottom: 0;
+    flex-shrink: 0;
   }
 
   .commission-title {
     font-size: 24px;
+    padding-bottom: 0;
   }
 }
 
@@ -160,12 +183,15 @@ const data = computed(() => pageData.value);
   }
 
   .commission-image {
-    max-width: 180px;
-    height: 180px;
+    max-width: 60px;
+    height: 60px;
+    padding-bottom: 0;
+    flex-shrink: 0;
   }
 
   .commission-title {
     font-size: 20px;
+    padding-bottom: 0;
   }
 
   .commission-subtitle {

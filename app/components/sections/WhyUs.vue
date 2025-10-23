@@ -160,7 +160,7 @@ const handleBecomePartner = () => {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
   position: relative;
   z-index: 2;
   justify-items: center;
@@ -220,7 +220,8 @@ const handleBecomePartner = () => {
   font-size: 16px;
   font-weight: 600;
   padding: 18px 42px;
-  border: none;
+  border: 1px solid;
+  border-image-source: linear-gradient(180deg, #FFD38C 0%, #CD9F55 100%);
   border-radius: 50px;
   cursor: pointer;
   display: inline-flex;
