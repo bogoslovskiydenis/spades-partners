@@ -29,9 +29,9 @@
 
       <div class="header-actions">
         <!-- Login and Sign up buttons -->
-        <div class="auth-buttons" v-if="data">
-          <a :href="data.ref_1" class="auth-button login-button">Log in</a>
-          <a :href="data.ref_2" class="auth-button signup-button">Sign up</a>
+        <div class="auth-buttons" v-if="data && data.ref_1 && data.ref_2">
+          <a :href="getFullUrl(data.ref_1)" class="auth-button login-button">Log in</a>
+          <a :href="getFullUrl(data.ref_2)" class="auth-button signup-button">Sign up</a>
         </div>
 
        
@@ -116,6 +116,18 @@ const goToHome = () => {
     // Navigate to home page
     window.location.href = '/';
   }
+};
+
+const getFullUrl = (url) => {
+  if (!url) return '#';
+  
+  // If URL already has protocol, return as is
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  
+  // Add https:// protocol if missing
+  return `https://${url}`;
 };
 
 onUnmounted(() => {
