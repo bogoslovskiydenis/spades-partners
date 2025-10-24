@@ -120,17 +120,19 @@ const data = computed(() => pageData.value);
 }
 
 .benefit-title {
-  font-size: 18px;
-  font-weight: 500;
+  font-family: 'Wix Madefor Display', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
   color: #ffffff;
   margin: 0;
-  line-height: 1.4;
 }
 
 .benefit-description {
+  font-family: 'Wix Madefor Text', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 24px;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
 }
@@ -187,7 +189,7 @@ const data = computed(() => pageData.value);
   }
 
   .benefit-description {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .benefits-image {

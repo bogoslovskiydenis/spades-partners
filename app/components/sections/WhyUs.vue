@@ -52,17 +52,8 @@ const { pageData } = usePageData();
 const data = computed(() => pageData.value);
 
 onMounted(() => {
-  animateHearts();
+  // Анимации убраны
 });
-
-const animateHearts = () => {
-  const hearts = document.querySelectorAll('.heart');
-  hearts.forEach((heart, index) => {
-    setTimeout(() => {
-      heart.style.animation = `float 3s ease-in-out ${index * 0.5}s infinite`;
-    }, index * 200);
-  });
-};
 
 const handleBecomePartner = () => {
   const contactSection = document.getElementById('contact');
@@ -78,6 +69,8 @@ const handleBecomePartner = () => {
   background: #010101;
   position: relative;
   overflow: hidden;
+  padding-top: 142px;
+  padding-bottom: 162px;
 }
 
 .container {
@@ -105,13 +98,12 @@ const handleBecomePartner = () => {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .heart {
   position: absolute;
   opacity: 1;
-  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
 }
 
 .heart img {
@@ -121,37 +113,27 @@ const handleBecomePartner = () => {
 }
 
 .heart-1 {
-  width: 377.25px;
-  height: 377.25px;
-  top: -50%;
+  width: 419px;
+  height: 445px;
+  top: -85%;
   right: 0%;
   transform: rotate(350deg);
 }
 
 .heart-2 {
-  width: 771px;
-  height: 771px;
+  width: 727px;
+  height: 637px;
   top: -400px;
-  left: -250px;
+  left: -38%;
   transform: rotate(6deg);
 }
 
 .heart-3 {
-  width: 394px;
-  height: 379.77px;
+  width: 213px;
+  height: 184px;
   bottom: -160px;
-  right: -4%;
-  transform: rotate(351deg);
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+  right: 14%;
+  transform: rotate(0deg);
 }
 
 .advantages-grid {
@@ -221,7 +203,7 @@ const handleBecomePartner = () => {
   font-weight: 600;
   padding: 18px 42px;
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -253,6 +235,24 @@ const handleBecomePartner = () => {
   transform: translateX(4px);
 }
 
+/* Медиа-запрос для больших экранов (2K и выше) */
+@media (min-width: 1920px) {
+  .heart-1 {
+    top: -90%;
+    right: -5%;
+  }
+
+  .heart-2 {
+    top: -450px;
+    left: -45%;
+  }
+
+  .heart-3 {
+    bottom: -200px;
+    right: 20%;
+  }
+}
+
 @media (max-width: 1200px) {
   .advantages-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -264,6 +264,11 @@ const handleBecomePartner = () => {
 }
 
 @media (max-width: 768px) {
+  .why-us-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .container {
     padding: 80px 16px;
   }
@@ -286,18 +291,18 @@ const handleBecomePartner = () => {
   }
 
   .heart-2 {
-    top: -29%;
+    top: -50%;
     left: -37%;
   }
 
   .heart-1 {
-    top: 22%;
-    right: -29%;
+    top: 14%;
+    right: -18%;
   }
 
   .heart-3 {
     bottom: -8%;
-    right: -26%;
+    right: 0%;
   }
   .hero-button {
     padding: 15px 34px;
@@ -315,8 +320,19 @@ const handleBecomePartner = () => {
     grid-template-columns: 1fr;
   }
 
+  .heart1 {
+    top: 31%;
+    right: -18%;
+  }
+
   .heart-2 {
-    left: -58%;
+    left: -102%;
+    top: -26%;
+  }
+
+  .heart3 {
+    bottom: -3%;
+    right: 0%;
   }
 }
 </style>

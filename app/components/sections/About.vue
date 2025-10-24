@@ -138,7 +138,7 @@ const data = computed(() => pageData.value);
   }
 
   .about-subtitle {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .feature-title {

@@ -82,9 +82,8 @@ const data = computed(() => pageData.value);
 }
 
 .commission-image {
-  width: 100%;
-  max-width: 280px;
-  height: 280px;
+  width: 240px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,10 +121,6 @@ const data = computed(() => pageData.value);
     gap: 50px;
   }
 
-  .commission-image {
-    max-width: 240px;
-    height: 240px;
-  }
 
   .commission-title {
     font-size: 28px;

@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Wix Madefor Display', sans-serif;
+    font-family: 'Wix Madefor Text', sans-serif;
     color: #010101;
     background-color: #ffffff;
 }
@@ -40,12 +40,41 @@ h4 {
     line-height: 28px;
 }
 
-/* Типография для текстов */
+/* Типография для текстов - Desktop */
 p {
-    font-family: 'Wix Madefor Display', sans-serif;
+    font-family: 'Wix Madefor Text', sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+}
+
+/* Дополнительные стили для текстов */
+.text-b1-large {
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.text-b1-small {
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.label {
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.links {
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
 }
 
 /* Адаптивная типография для мобильных устройств */
@@ -76,5 +105,40 @@ p {
         font-weight: 600;
         font-size: 20px;
         line-height: 28px;
+    }
+
+    p {
+        font-family: 'Wix Madefor Text', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .text-b1-large {
+        font-family: 'Wix Madefor Text', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .text-b1-small {
+        font-family: 'Wix Madefor Text', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .label {
+        font-family: 'Wix Madefor Text', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    .links {
+        font-family: 'Wix Madefor Text', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
     }
 }

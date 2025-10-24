@@ -199,8 +199,10 @@ onUnmounted(() => {
 
 .nav-link {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 15px;
+  font-family: 'Wix Madefor Text', sans-serif;
+  font-size: 14px;
   font-weight: 400;
+  line-height: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
@@ -238,6 +240,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 12px;
+  height: 48px;
 }
 
 .auth-button {

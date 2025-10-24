@@ -26,8 +26,8 @@
 
         <div class="footer-links">
           <div class="footer-links">
-            <NuxtLink to="/policy">Privacy Policy</NuxtLink>
             <NuxtLink to="/terms">Terms and conditions</NuxtLink>
+            <NuxtLink to="/policy">Privacy Policy</NuxtLink>
           </div>
         </div>
       </div>
@@ -55,6 +55,7 @@ const data = computed(() => {
   color: #fff;
   padding: 60px 20px 40px;
   position: relative;
+  z-index: 0;
 }
 
 .footer-container {
@@ -92,7 +93,7 @@ const data = computed(() => {
 }
 
 .copyright {
-  font-size: 13px;
+  font-size: 14px;
   color: #666;
 }
 
@@ -151,8 +152,12 @@ const data = computed(() => {
 }
 
 .footer-links a {
-  color: #999;
-  text-decoration: none;
+  color: #F2F2FF;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-offset: 0%;
+  text-decoration-thickness: 0%;
+  text-decoration-skip-ink: auto;
   transition: color 0.3s ease;
 }
 

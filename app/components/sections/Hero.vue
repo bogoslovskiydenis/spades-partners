@@ -188,6 +188,7 @@ const handleBecomePartner = () => {
   line-height: 1.2;
   text-align: center;
   white-space: nowrap;
+  padding-top: 48px;
 }
 
 .title-quality {
@@ -199,10 +200,10 @@ const handleBecomePartner = () => {
 }
 
 .hero-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Wix Madefor Text', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 153%;
+  line-height: 24px;
   text-align: center;
   color: rgba(230, 229, 255, 0.64);
   margin: 0;
@@ -249,7 +250,7 @@ const handleBecomePartner = () => {
   font-weight: 600;
   padding: 18px 42px;
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -316,19 +317,17 @@ const handleBecomePartner = () => {
 }
 
 .step-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Wix Madefor Text', sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 153%;
+  font-size: 14px;
+  line-height: 24px;
   text-align: center;
   color: #e6e5ffa3;
   margin: 0;
 }
 
 @media (max-width: 1024px) {
-  .hero-title {
-    font-size: 52px;
-  }
+ 
 
   .hero-bottom {
     gap: 50px;
@@ -368,7 +367,7 @@ const handleBecomePartner = () => {
   }
 
   .hero-description {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 90%;
   }
 
@@ -396,7 +395,7 @@ const handleBecomePartner = () => {
   }
 
   .step-text {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -424,7 +423,7 @@ const handleBecomePartner = () => {
   }
 
   .hero-description {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.45;
     max-width: 100%;
     padding: 0 5px;
@@ -475,7 +474,7 @@ const handleBecomePartner = () => {
 
   .step-text {
     text-align: left;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.35;
     flex: 1;
   }

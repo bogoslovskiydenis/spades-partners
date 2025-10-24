@@ -81,7 +81,7 @@ body {
   padding: 0;
   background-color: #010101;
   font-family:
-    'Inter',
+    'Wix Madefor Text',
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',

@@ -299,7 +299,6 @@ onUnmounted(() => {
 .testimonial-card:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-4px);
 }
 
 .quote-icon {
@@ -368,8 +367,8 @@ onUnmounted(() => {
 }
 
 .faq-item.active {
-  background: rgba(183, 200, 255, 0.06);
-  border-color: #cd9f55;
+  background: #B7C8FF0A;
+  backdrop-filter: blur(44px);
 }
 
 .faq-question {
@@ -404,7 +403,6 @@ onUnmounted(() => {
 
 .faq-item.active .faq-icon {
   transform: rotate(180deg);
-  color: #cd9f55;
 }
 
 .faq-answer {

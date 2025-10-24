@@ -162,17 +162,15 @@ const handleSubmit = async () => {
 /* Декоративное изображение слева */
 .decoration-left {
   position: absolute;
-  left: 2%;
-  top: -20%;
-  transform: rotate(348deg);
-  width: 43%;
+  left: -3%;
+  top: -13%;
+  width: 51%;
   z-index: 0;
   opacity: 0.8;
 }
 
 .decoration-left img {
   display: block;
-  filter: drop-shadow(0 20px 60px rgba(201, 160, 95, 0.3));
 }
 
 /* Декоративное изображение справа */
@@ -189,7 +187,6 @@ const handleSubmit = async () => {
 
 .decoration-right img {
   display: block;
-  filter: drop-shadow(0 20px 60px rgba(201, 160, 95, 0.3));
 }
 
 .contact-container {
@@ -278,7 +275,6 @@ const handleSubmit = async () => {
   outline: none;
   background: transparent;
   border-bottom-color: #c9a05f;
-  box-shadow: 0 2px 8px rgba(201, 160, 95, 0.2);
 }
 
 .form-textarea {
@@ -345,13 +341,25 @@ const handleSubmit = async () => {
   }
 }
 
+/* Медиа-запрос для больших экранов (2K и выше) */
+@media (min-width: 1921px) {
+  .decoration-left {
+    left: -8%;
+    top: -20%;
+  }
+
+  .decoration-right {
+    right: 5%;
+    bottom: -15%;
+  }
+}
+
 @media (max-width: 1920px) {
   .decoration-left {
     position: absolute;
-    left: 5%;
+    left: 0%;
     top: -13%;
-    transform: rotate(348deg);
-    width: 51%;
+    width: 45%;
     z-index: 0;
     opacity: 0.8;
   }
