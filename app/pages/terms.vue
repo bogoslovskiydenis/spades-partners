@@ -124,9 +124,9 @@
             <h2>Termination</h2>
 
             <p>
-              We may terminate or suspend Your access immediately, without prior notice or liability,
-              for any reason whatsoever, including without limitation if You breach these Terms and
-              Conditions.
+              We may terminate or suspend Your access immediately, without prior notice or
+              liability, for any reason whatsoever, including without limitation if You breach these
+              Terms and Conditions.
             </p>
 
             <p>Upon termination, Your right to use the Service will cease immediately.</p>
@@ -144,21 +144,21 @@
 
             <p>
               To the maximum extent permitted by applicable law, in no event shall the Company or
-              its suppliers be liable for any special, incidental, indirect, or consequential damages
-              whatsoever (including, but not limited to, damages for loss of profits, loss of data
-              or other information, for business interruption, for personal injury, loss of privacy
-              arising out of or in any way related to the use of or inability to use the Service,
-              third-party software and/or third-party hardware used with the Service, or otherwise
-              in connection with any provision of this Terms), even if the Company or any supplier
-              has been advised of the possibility of such damages and even if the remedy fails of its
-              essential purpose.
+              its suppliers be liable for any special, incidental, indirect, or consequential
+              damages whatsoever (including, but not limited to, damages for loss of profits, loss
+              of data or other information, for business interruption, for personal injury, loss of
+              privacy arising out of or in any way related to the use of or inability to use the
+              Service, third-party software and/or third-party hardware used with the Service, or
+              otherwise in connection with any provision of this Terms), even if the Company or any
+              supplier has been advised of the possibility of such damages and even if the remedy
+              fails of its essential purpose.
             </p>
 
             <p>
-              Some states do not allow the exclusion of implied warranties or limitation of liability
-              for incidental or consequential damages, which means that some of the above limitations
-              may not apply. In these states, each party's liability will be limited to the greatest
-              extent permitted by law.
+              Some states do not allow the exclusion of implied warranties or limitation of
+              liability for incidental or consequential damages, which means that some of the above
+              limitations may not apply. In these states, each party's liability will be limited to
+              the greatest extent permitted by law.
             </p>
           </section>
 
@@ -169,27 +169,27 @@
               The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and
               defects without warranty of any kind. To the maximum extent permitted under applicable
               law, the Company, on its own behalf and on behalf of its Affiliates and its and their
-              respective licensors and service providers, expressly disclaims all warranties, whether
-              express, implied, statutory or otherwise, with respect to the Service, including all
-              implied warranties of merchantability, fitness for a particular purpose, title and
-              non-infringement, and warranties that may arise out of course of dealing, course of
-              performance, usage or trade practice. Without limitation to the foregoing, the Company
-              provides no warranty or undertaking, and makes no representation of any kind that the
-              Service will meet Your requirements, achieve any intended results, be compatible or
-              work with any other software, applications, systems or services, operate without
-              interruption, meet any performance or reliability standards or be error free or that
-              any errors or defects can or will be corrected.
+              respective licensors and service providers, expressly disclaims all warranties,
+              whether express, implied, statutory or otherwise, with respect to the Service,
+              including all implied warranties of merchantability, fitness for a particular purpose,
+              title and non-infringement, and warranties that may arise out of course of dealing,
+              course of performance, usage or trade practice. Without limitation to the foregoing,
+              the Company provides no warranty or undertaking, and makes no representation of any
+              kind that the Service will meet Your requirements, achieve any intended results, be
+              compatible or work with any other software, applications, systems or services, operate
+              without interruption, meet any performance or reliability standards or be error free
+              or that any errors or defects can or will be corrected.
             </p>
 
             <p>
               Without limiting the foregoing, neither the Company nor any of the company's provider
               makes any representation or warranty of any kind, express or implied: (i) as to the
-              operation or availability of the Service, or the information, content, and materials or
-              products included thereon; (ii) that the Service will be uninterrupted or error-free;
-              (iii) as to the accuracy, reliability, or currency of any information or content
-              provided through the Service; or (iv) that the Service, its servers, the content, or
-              e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan
-              horses, worms, malware, timebombs or other harmful components.
+              operation or availability of the Service, or the information, content, and materials
+              or products included thereon; (ii) that the Service will be uninterrupted or
+              error-free; (iii) as to the accuracy, reliability, or currency of any information or
+              content provided through the Service; or (iv) that the Service, its servers, the
+              content, or e-mails sent from or on behalf of the Company are free of viruses,
+              scripts, trojan horses, worms, malware, timebombs or other harmful components.
             </p>
 
             <p>
@@ -221,8 +221,8 @@
 
             <h3>For European Union (EU) Users</h3>
             <p>
-              If You are a European Union consumer, you will benefit from any mandatory provisions of
-              the law of the country in which You are resident.
+              If You are a European Union consumer, you will benefit from any mandatory provisions
+              of the law of the country in which You are resident.
             </p>
           </section>
 
@@ -250,8 +250,8 @@
 
             <h3>Waiver</h3>
             <p>
-              Except as provided herein, the failure to exercise a right or to require performance of
-              an obligation under these Terms shall not affect a party's ability to exercise such
+              Except as provided herein, the failure to exercise a right or to require performance
+              of an obligation under these Terms shall not affect a party's ability to exercise such
               right or require such performance at any time thereafter nor shall the waiver of a
               breach constitute a waiver of any subsequent breach.
             </p>
@@ -297,13 +297,51 @@
       </div>
     </main>
 
-    <Footer />
+    <!-- Footer section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="logo">
+            <img src="../assets/SpadesPartnersLogo.svg" alt="Spades Partners" />
+          </div>
+          <p class="description" v-if="data">{{ data.footer_text }}</p>
+          <p class="copyright" v-if="data">{{ data.footer_sub_text }}</p>
+        </div>
+
+        <div class="footer-section contact-section">
+          <a v-if="data" :href="`mailto:${data.email}`" class="email">{{ data.email }}</a>
+
+          <div class="social-links" v-if="data && data.social">
+            <a
+              v-for="(item, index) in data.social"
+              :key="index"
+              :href="item.link"
+              class="social-link"
+              :aria-label="item.link"
+            >
+              <img :src="item.icon" :alt="item.link" class="social-icon" />
+            </a>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-links">
+              <NuxtLink to="/terms">Terms and conditions</NuxtLink>
+              <NuxtLink to="/policy">Privacy Policy</NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script setup>
 import Header from '../components/sections/Header.vue';
-import Footer from '../components/sections/Footer.vue';
+import { computed } from 'vue';
+import { usePageData } from '../composables/usePageData';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 
 // SEO meta tags for Terms and Conditions page
 useHead({
@@ -478,6 +516,143 @@ useHead({
 
   .terms-section h3 {
     font-size: 18px;
+  }
+}
+
+/* Footer styles */
+.footer {
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  z-index: 0;
+}
+
+.footer-container {
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer-section {
+  max-width: 450px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 450px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #666;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.email {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.email:hover {
+  color: #c9a05f;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #c9a05f;
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  padding-top: 36px;
+}
+
+.footer-links a {
+  color: #f2f2ff;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-offset: 0%;
+  text-decoration-thickness: 0%;
+  text-decoration-skip-ink: auto;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #c9a05f;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .contact-section {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
   }
 }
 </style>

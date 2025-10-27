@@ -171,8 +171,8 @@
                 Purpose: These Cookies are essential to provide You with services available through
                 the Website and to enable You to use some of its features. They help to authenticate
                 users and prevent fraudulent use of user accounts. Without these Cookies, the
-                services that You have asked for cannot be provided, and We only use these Cookies to
-                provide You with those services.
+                services that You have asked for cannot be provided, and We only use these Cookies
+                to provide You with those services.
               </div>
             </div>
 
@@ -427,8 +427,8 @@
             <div class="tracking-item">
               <strong>Google Places</strong>
               <div>
-                Google Places is a service that returns information about places using HTTP requests.
-                It is operated by Google.
+                Google Places is a service that returns information about places using HTTP
+                requests. It is operated by Google.
               </div>
               <div>
                 Google Places service may collect information from You and from Your Device for
@@ -508,21 +508,57 @@
 
             <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 
-            <div class="tracking-item">
-              <strong>By email:</strong> marketing@spadespartners.com
-            </div>
+            <div class="tracking-item"><strong>By email:</strong> marketing@spadespartners.com</div>
           </section>
         </div>
       </div>
     </main>
 
-    <Footer />
+    <!-- Footer section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="logo">
+            <img src="../assets/SpadesPartnersLogo.svg" alt="Spades Partners" />
+          </div>
+          <p class="description" v-if="data">{{ data.footer_text }}</p>
+          <p class="copyright" v-if="data">{{ data.footer_sub_text }}</p>
+        </div>
+
+        <div class="footer-section contact-section">
+          <a v-if="data" :href="`mailto:${data.email}`" class="email">{{ data.email }}</a>
+
+          <div class="social-links" v-if="data && data.social">
+            <a
+              v-for="(item, index) in data.social"
+              :key="index"
+              :href="item.link"
+              class="social-link"
+              :aria-label="item.link"
+            >
+              <img :src="item.icon" :alt="item.link" class="social-icon" />
+            </a>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-links">
+              <NuxtLink to="/terms">Terms and conditions</NuxtLink>
+              <NuxtLink to="/policy">Privacy Policy</NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script setup>
 import Header from '../components/sections/Header.vue';
-import Footer from '../components/sections/Footer.vue';
+import { computed } from 'vue';
+import { usePageData } from '../composables/usePageData';
+
+const { pageData } = usePageData();
+const data = computed(() => pageData.value);
 
 // SEO meta tags for Privacy Policy page
 useHead({
@@ -730,6 +766,143 @@ useHead({
 
   .policy-section h4 {
     font-size: 16px;
+  }
+}
+
+/* Footer styles */
+.footer {
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  z-index: 0;
+}
+
+.footer-container {
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer-section {
+  max-width: 450px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 450px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #666;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.email {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.email:hover {
+  color: #c9a05f;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #c9a05f;
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  padding-top: 36px;
+}
+
+.footer-links a {
+  color: #f2f2ff;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-offset: 0%;
+  text-decoration-thickness: 0%;
+  text-decoration-skip-ink: auto;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #c9a05f;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .contact-section {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
   }
 }
 </style>

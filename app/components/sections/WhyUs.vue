@@ -98,7 +98,6 @@ const handleBecomePartner = () => {
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 1;
 }
 
 .heart {
@@ -326,8 +325,8 @@ const handleBecomePartner = () => {
   }
 
   .heart-2 {
-    left: -102%;
-    top: -26%;
+    left: -127%;
+    top: -25%;
   }
 
   .heart3 {

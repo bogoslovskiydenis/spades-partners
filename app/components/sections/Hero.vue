@@ -257,7 +257,7 @@ const handleBecomePartner = () => {
   justify-content: center;
   gap: 10px;
   transition: all 0.3s ease;
-  box-shadow: 
+  box-shadow:
     0 0 0 1px #ffd38c,
     0 12px 35px rgba(212, 165, 116, 0.35);
   letter-spacing: 0.01em;
@@ -327,8 +327,6 @@ const handleBecomePartner = () => {
 }
 
 @media (max-width: 1024px) {
- 
-
   .hero-bottom {
     gap: 50px;
   }
@@ -414,7 +412,7 @@ const handleBecomePartner = () => {
   .title-quality {
     display: block;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
 
   .title-specialty {

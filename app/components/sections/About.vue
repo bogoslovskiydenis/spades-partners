@@ -96,13 +96,12 @@ const data = computed(() => pageData.value);
 }
 
 @media (max-width: 1024px) {
-  
 }
 
 @media (max-width: 900px) {
   .about-features {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 32px;
     justify-items: center;
   }
 
@@ -117,7 +116,6 @@ const data = computed(() => pageData.value);
     padding: 0 16px;
   }
 
-
   .about-features {
     grid-template-columns: 1fr;
   }
@@ -127,7 +125,6 @@ const data = computed(() => pageData.value);
   }
 
   .feature-card {
-    padding: 30px 24px;
     text-align: left;
   }
 }

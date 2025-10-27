@@ -30,11 +30,11 @@
       <div class="header-actions">
         <!-- Login and Sign up buttons -->
         <div class="auth-buttons" v-if="hasAuthLinks">
-          <a :href="loginUrl" class="auth-button login-button">Log in</a>
           <a :href="signupUrl" class="auth-button signup-button">Sign up</a>
+          <a :href="loginUrl" class="auth-button login-button">
+            <img src="../../assets/images/user.svg" alt="User" class="user-icon" />
+          </a>
         </div>
-
-       
 
         <button
           v-if="data && data.menu"
@@ -130,15 +130,15 @@ const goToHome = () => {
   }
 };
 
-const getFullUrl = (url) => {
+const getFullUrl = url => {
   try {
     if (!url || typeof url !== 'string') return '#';
-    
+
     // If URL already has protocol, return as is
     if (url.startsWith('http://') || url.startsWith('https://')) {
       return url;
     }
-    
+
     // Add https:// protocol if missing
     return `https://${url}`;
   } catch (error) {
@@ -229,7 +229,6 @@ onUnmounted(() => {
   width: 100%;
 }
 
-
 .header-actions {
   display: flex;
   align-items: center;
@@ -252,7 +251,7 @@ onUnmounted(() => {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: #B7C8FF14;
+  background: #b7c8ff14;
   backdrop-filter: blur(44px);
 }
 
@@ -260,6 +259,12 @@ onUnmounted(() => {
   background: rgba(183, 200, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
+}
+
+.user-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .mobile-menu-toggle {

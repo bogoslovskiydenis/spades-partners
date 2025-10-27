@@ -9,10 +9,8 @@
       <WhyUs />
       <Comissions />
       <About />
-
       <Testimonials />
       <Contact />
-      <Footer />
     </main>
   </div>
 </template>
@@ -26,7 +24,6 @@ import WhyUs from '../components/sections/WhyUs.vue';
 import Comissions from '../components/sections/Comissions.vue';
 import OurBrands from '../components/sections/OurBrands.vue';
 import Testimonials from '../components/sections/Testimonials.vue';
-import Footer from '../components/sections/Footer.vue';
 import Contact from '../components/sections/Contact.vue';
 </script>
 

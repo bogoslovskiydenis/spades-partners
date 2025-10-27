@@ -1,13 +1,15 @@
 <template>
   <div id="contact" class="contact-page">
-    <!-- Декоративное изображение слева -->
-    <div class="decoration-left">
-      <img src="../../assets/images/contactheart1.png" alt="" />
-    </div>
+    <div class="decorations-container">
+      <!-- Декоративное изображение слева -->
+      <div class="decoration decoration-left">
+        <img src="../../assets/images/contactheart1.png" alt="" />
+      </div>
 
-    <!-- Декоративное изображение справа -->
-    <div class="decoration-right">
-      <img src="../../assets/images/contactheart2.png" alt="" />
+      <!-- Декоративное изображение справа -->
+      <div class="decoration decoration-right">
+        <img src="../../assets/images/contactheart2.png" alt="" />
+      </div>
     </div>
 
     <div class="contact-container">
@@ -55,6 +57,42 @@
         </button>
       </form>
     </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="logo">
+            <img src="../../assets/SpadesPartnersLogo.svg" alt="Spades Partners" />
+          </div>
+          <p class="description" v-if="data">{{ data.footer_text }}</p>
+          <p class="copyright" v-if="data">{{ data.footer_sub_text }}</p>
+        </div>
+
+        <div class="footer-section contact-section">
+          <a v-if="data" :href="`mailto:${data.email}`" class="email">{{ data.email }}</a>
+
+          <div class="social-links" v-if="data && data.social">
+            <a
+              v-for="(item, index) in data.social"
+              :key="index"
+              :href="item.link"
+              class="social-link"
+              :aria-label="item.link"
+            >
+              <img :src="item.icon" :alt="item.link" class="social-icon" />
+            </a>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-links">
+              <NuxtLink to="/terms">Terms and conditions</NuxtLink>
+              <NuxtLink to="/policy">Privacy Policy</NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -152,51 +190,43 @@ const handleSubmit = async () => {
 .contact-page {
   background: #000;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 80px;
+  flex-direction: column;
+  padding: 80px 80px 0;
   position: relative;
   overflow: hidden;
 }
 
-/* Декоративное изображение слева */
-.decoration-left {
+.decorations-container {
   position: absolute;
-  left: -3%;
-  top: -13%;
-  width: 51%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
   z-index: 0;
-  opacity: 0.8;
 }
 
-.decoration-left img {
-  display: block;
-}
-
-/* Декоративное изображение справа */
-.decoration-right {
+.decoration {
   position: absolute;
-  right: 9%;
-  bottom: -12%;
-  width: 30%;
-  max-width: 450px;
-  z-index: 0;
-  opacity: 0.8;
-  transform: rotate(348deg);
+  opacity: 1;
 }
 
-.decoration-right img {
-  display: block;
+.decoration img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .contact-container {
   display: flex;
   max-width: 453px;
   width: 100%;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .contact-header {
@@ -350,28 +380,24 @@ const handleSubmit = async () => {
 
   .decoration-right {
     right: 5%;
-    bottom: -15%;
+    bottom: 10%;
   }
 }
 
 @media (max-width: 1920px) {
   .decoration-left {
     position: absolute;
-    left: 0%;
-    top: -13%;
-    width: 45%;
+    left: -9%;
+    top: -17%;
     z-index: 0;
-    opacity: 0.8;
   }
 
   .decoration-right {
     position: absolute;
     right: 4%;
-    bottom: -7%;
-    width: 30%;
+    bottom: 5%;
     max-width: 450px;
     z-index: 0;
-    opacity: 0.8;
     transform: rotate(348deg);
   }
 }
@@ -383,9 +409,7 @@ const handleSubmit = async () => {
     left: -17%;
     top: -5%;
     transform: rotate(348deg);
-    width: 75%;
     z-index: 0;
-    opacity: 0.8;
   }
 
   .decoration-right {
@@ -393,9 +417,7 @@ const handleSubmit = async () => {
     right: 4%;
     bottom: -7%;
     width: 30%;
-    max-width: 450px;
     z-index: 0;
-    opacity: 0.8;
     transform: rotate(348deg);
   }
 }
@@ -434,9 +456,7 @@ const handleSubmit = async () => {
     left: -17%;
     top: -26%;
     transform: rotate(348deg);
-    width: 100%;
     z-index: 0;
-    opacity: 0.8;
   }
 
   .decoration-right {
@@ -444,15 +464,12 @@ const handleSubmit = async () => {
     right: 0%;
     bottom: -8%;
     width: 41%;
-    max-width: 450px;
     z-index: 0;
-    opacity: 0.8;
     transform: rotate(348deg);
   }
 }
 
 @media (max-width: 480px) {
-
   .contact-subtitle {
     font-size: 13px;
   }
@@ -477,20 +494,149 @@ const handleSubmit = async () => {
     left: -24%;
     top: -12%;
     transform: rotate(348deg);
-    width: 100%;
     z-index: 0;
-    opacity: 0.8;
   }
 
   .decoration-right {
     position: absolute;
     right: 4%;
     bottom: -7%;
-    width: 41%;
-    max-width: 450px;
     z-index: 0;
-    opacity: 0.8;
     transform: rotate(348deg);
+  }
+}
+
+/* Footer styles */
+.footer {
+  position: relative;
+  z-index: 0;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer-section {
+  max-width: 450px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 450px;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #666;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.email {
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 30px;
+  transition: color 0.3s ease;
+}
+
+.email:hover {
+  color: #c9a05f;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #c9a05f;
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  padding-top: 36px;
+}
+
+.footer-links a {
+  color: #f2f2ff;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-offset: 0%;
+  text-decoration-thickness: 0%;
+  text-decoration-skip-ink: auto;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #c9a05f;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 40px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contact-section {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
   }
 }
 </style>

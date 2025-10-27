@@ -192,8 +192,17 @@ onUnmounted(() => {
   padding: 80px 80px 180px;
   position: relative;
   z-index: 1;
-  background: url('../../assets/images/bg.png') no-repeat center top;
+  background: url('../../assets/images/BG22.webp') no-repeat center bottom;
   background-size: cover;
+  background-attachment: local;
+}
+
+/* Медиа-запрос для больших экранов (2K и выше) */
+@media (min-width: 1921px) {
+  .testimonials-section {
+    background-size: contain;
+    background-position: center center;
+  }
 }
 
 .faq-section {
@@ -346,7 +355,7 @@ onUnmounted(() => {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 }
 
 .faq-item {
@@ -367,7 +376,7 @@ onUnmounted(() => {
 }
 
 .faq-item.active {
-  background: #B7C8FF0A;
+  background: #b7c8ff0a;
   backdrop-filter: blur(44px);
 }
 
