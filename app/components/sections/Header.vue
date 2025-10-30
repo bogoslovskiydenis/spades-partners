@@ -30,10 +30,20 @@
       <div class="header-actions">
         <!-- Login and Sign up buttons -->
         <div class="auth-buttons" v-if="hasAuthLinks">
-          <a :href="signupUrl" class="auth-button signup-button">Sign up</a>
-          <a :href="loginUrl" class="auth-button login-button">
-            <img src="../../assets/images/user.svg" alt="User" class="user-icon" />
-          </a>
+          <a
+            :href="loginUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="auth-button login-button"
+            >Login</a
+          >
+          <a
+            :href="signupUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="auth-button signup-button"
+            >Sign up</a
+          >
         </div>
 
         <button
@@ -258,13 +268,22 @@ onUnmounted(() => {
 .auth-button:hover {
   background: rgba(183, 200, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
 }
 
-.user-icon {
-  width: 20px;
-  height: 20px;
-  display: block;
+.signup-button {
+  background: #cd9f55;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(53.20000076293945px);
+}
+
+.signup-button:hover {
+  background: linear-gradient(135deg, #e0b180 0%, #c89f6b 100%);
 }
 
 .mobile-menu-toggle {
@@ -350,6 +369,11 @@ onUnmounted(() => {
   }
 
   .auth-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .signup-button {
     padding: 8px 16px;
     font-size: 14px;
   }
