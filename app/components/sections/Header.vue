@@ -190,10 +190,6 @@ onUnmounted(() => {
   transition: opacity 0.3s ease;
 }
 
-.header-logo:hover {
-  opacity: 0.8;
-}
-
 .logo-image {
   height: 32px;
   width: auto;
@@ -231,14 +227,6 @@ onUnmounted(() => {
   transition: width 0.3s ease;
 }
 
-.nav-link:hover {
-  color: #ffffff;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
 .header-actions {
   display: flex;
   align-items: center;
@@ -265,11 +253,6 @@ onUnmounted(() => {
   backdrop-filter: blur(44px);
 }
 
-.auth-button:hover {
-  background: rgba(183, 200, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
 .signup-button {
   background: #cd9f55;
   color: #ffffff;
@@ -280,10 +263,6 @@ onUnmounted(() => {
   border-radius: 50px;
   letter-spacing: 0.01em;
   backdrop-filter: blur(53.20000076293945px);
-}
-
-.signup-button:hover {
-  background: linear-gradient(135deg, #e0b180 0%, #c89f6b 100%);
 }
 
 .mobile-menu-toggle {

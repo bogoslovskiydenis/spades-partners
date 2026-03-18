@@ -10,9 +10,13 @@ export const usePageData = () => {
     error.value = null;
 
     try {
-      const response = await $fetch('https://spadespartners.fun/wp-content/themes/api/app/pages/');
-      pageData.value = response.body;
-      return response.body;
+      const origin = process.client ? window.location.origin : 'https://admin.spadespartners.com';
+      const url = new URL('/wp-content/themes/api/app/pages/', origin).toString();
+      const res = await $fetch.raw(url, { retry: 0 });
+      const data = res?._data;
+
+      pageData.value = data && typeof data === 'object' && 'body' in data ? data.body : data;
+      return pageData.value;
     } catch (err) {
       error.value = err;
       console.error('Error fetching page data:', err);

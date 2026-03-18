@@ -216,22 +216,9 @@ const handleBecomePartner = () => {
   backdrop-filter: blur(53.20000076293945px);
 }
 
-.hero-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(212, 165, 116, 0.45);
-  background: linear-gradient(135deg, #e0b180 0%, #c89f6b 100%);
-}
-
-.hero-button:active {
-  transform: translateY(-1px);
-}
 
 .button-arrow {
   transition: transform 0.3s ease;
-}
-
-.hero-button:hover .button-arrow {
-  transform: translateX(4px);
 }
 
 /* Медиа-запрос для больших экранов (2K и выше) */
